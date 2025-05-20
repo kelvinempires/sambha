@@ -2,8 +2,8 @@
 
 [![WIP](https://img.shields.io/badge/Status-Work%20In%20Progress-yellow)](https://github.com/your-repo/sambha)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Powered by Stellar](https://img.shields.io/badge/Powered%20by-Stellar-brightgreen)](https://stellar.org)
-[![Smart Contracts: Soroban](https://img.shields.io/badge/Smart%20Contracts-Soroban-orange)](https://soroban.stellar.org)
+[![Powered by StarkNet](https://img.shields.io/badge/Powered%20by-StarkNet-4f46e5)](https://starknet.io)
+[![Smart Contracts: Cairo](https://img.shields.io/badge/Smart%20Contracts-Cairo-orange)](https://www.cairo-lang.org/)
 [![OnlyDust](https://img.shields.io/badge/Contributions-OnlyDust-purple)](https://app.onlydust.com)
 
 <!-- [![Made with React Native](https://img.shields.io/badge/Made%20with-React%20Native-61dafb)](https://reactnative.dev/)
@@ -28,7 +28,7 @@ generation and budget estimation.
 
 - **NFT-Based Event Passes**: Secure, unique digital passes for event attendees
 - **Blockchain-Powered Vendor Payments**: Transparent milestone-based payments
-  using Stellar's Soroban smart contracts
+  using StarkNet smart contracts
 - **AI-Enhanced Planning Tools**: Automated task generation and budget
   estimation
 - **Comprehensive Event Management**: End-to-end tools for planners, guests, and
@@ -41,7 +41,8 @@ generation and budget estimation.
 - **Backend**: Node.js, Hono framework, TypeScript
 - **Database**: MongoDB
 - **Mobile Application**: React Native
-- **Blockchain**: Stellar Network with Soroban smart contracts
+- **Blockchain**: StarkNet (Layer 2 scaling solution for Ethereum)
+- **Smart Contracts**: Cairo language
 - **Caching**: Redis
 - **File Storage**: Cloud storage & IPFS (for NFT metadata)
 
@@ -64,8 +65,9 @@ generation and budget estimation.
   - Database schema design and implementation
 
 - **Smart Contract Development**
-  - Basic Stellar asset for NFT event passes
+  - Basic StarkNet NFT contract for event passes
   - Contract testing and security review
+  - StarkNet development environment setup
 
 - **Mobile App - Guest Experience**
   - User registration and profile management
@@ -85,8 +87,9 @@ generation and budget estimation.
   - File management system
 
 - **Smart Contract Development**
-  - Enhanced NFT functionality
-  - Initial escrow contract design
+  - Enhanced NFT functionality on StarkNet
+  - Initial escrow contract design in Cairo
+  - StarkNet wallet integration research
 
 - **Mobile App Enhancements**
   - Chat functionality
@@ -111,12 +114,13 @@ generation and budget estimation.
   - Payment processing infrastructure
 
 - **Smart Contract Development**
-  - Soroban escrow implementation for milestone payments
+  - Cairo escrow implementation for milestone payments
   - Payment release mechanisms
   - Initial dispute resolution functionality
+  - StarkNet transaction fee management
 
 - **Mobile App Enhancements**
-  - Wallet integration for guests
+  - StarkNet wallet integration for guests
   - Enhanced NFT experience
   - Rating and review system
 
@@ -126,7 +130,7 @@ generation and budget estimation.
   - Vendor hiring and payment flow
 
 - **Vendor Web App Enhancements**
-  - Blockchain wallet integration
+  - StarkNet wallet integration
   - Milestone tracking and payment acceptance
   - Enhanced booking management
 
@@ -143,9 +147,10 @@ generation and budget estimation.
   - Advanced analytics infrastructure
 
 - **Smart Contract Refinement**
-  - Complete dispute resolution system
-  - Contract upgradeability
+  - Complete dispute resolution system on StarkNet
+  - Contract upgradeability patterns in Cairo
   - Advanced security features
+  - StarkNet proof verification optimizations
 
 - **Mobile App - Complete Feature Set**
   - Calendar integration
@@ -165,7 +170,7 @@ generation and budget estimation.
 
 - **Admin Dashboard - Complete**
   - Comprehensive platform oversight
-  - Blockchain transaction monitoring
+  - StarkNet transaction monitoring
   - Advanced reporting and analytics
 
 ## Contributing

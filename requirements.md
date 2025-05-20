@@ -1,6 +1,6 @@
 ## **Sambha - Blockchain-Enhanced Event Management Platform: Requirements Document**
 
-Version: 1.0\
+Version: 1.1\
 Date: May 20, 2025
 
 **1\. Introduction**
@@ -219,67 +219,64 @@ The platform will cater to the following primary user roles:
   - Admins shall be able to view all payments (fiat and on-chain).
   - Admins shall have access to platform analytics.
 
-**5\. Blockchain-Specific Requirements (Stellar & Soroban)**
+**5\. Blockchain-Specific Requirements (StarkNet & Cairo)**
 
 - **NFT Event Passes:**
-  - Event passes shall be implemented as NFTs on the Stellar network using
-    Soroban smart contracts.
+  - Event passes shall be implemented as NFTs on StarkNet using Cairo smart
+    contracts.
   - NFT metadata (event name, date, pass image URI, link to event details) shall
-    be stored off-chain (e.g., IPFS), with the URI stored in the Soroban
-    contract.
+    be stored off-chain (e.g., IPFS), with the URI stored in the Cairo contract.
   - The platform shall manage the minting process.
-  - Consideration for using Stellar classic assets managed by the Stellar Asset
-    Contract (SAC) via Soroban for features like native clawback.
   - The system must allow for configuration of NFT transferability
     (non-transferable or admin-controlled).
-  - The Stellar Clawback feature (CAP-0035) should be investigated for managing
-    event passes if classic assets are used or a similar mechanism built into
-    Soroban contracts.
+  - The system should implement access control mechanisms to manage event pass
+    transfers.
 
 - **On-Chain Milestone Payments for Vendors:**
-  - Vendor payments for milestones shall be facilitated using USDC on the
-    Stellar network.
-  - Soroban smart contracts shall be used to implement escrow mechanisms for
+  - Vendor payments for milestones shall be facilitated using stablecoins (e.g.,
+    USDC, DAI) on StarkNet.
+  - Cairo smart contracts shall be used to implement escrow mechanisms for
     milestone payments.
   - Escrow contracts shall lock funds, with release conditioned on planner
     approval or arbitrator decision.
   - Multi-signature logic (e.g., Planner, Vendor, Platform Arbitrator) may be
-    implemented within Soroban contracts for fund release.
+    implemented within Cairo contracts for fund release.
   - Smart contracts must manage the state of each milestone (Pending, Completed,
     Disputed, Paid).
 
 - **Dispute Resolution (On-Chain Component):**
   - An impartial arbitrator role shall be defined, potentially with authority
     within the smart contract to resolve disputes and trigger fund release.
-  - A secure mechanism for relaying off-chain arbitrator decisions to the
-    Soroban smart contract is required (e.g., decentralized oracle network,
-    authenticated admin function).
+  - A secure mechanism for relaying off-chain arbitrator decisions to the Cairo
+    smart contract is required (e.g., verifiable oracle solutions).
 
 - **Wallet Management:**
   - The platform must decide on a custodial vs. non-custodial wallet strategy
     for users. A non-custodial approach is generally preferred for user-held
     assets like NFTs and vendor payouts.
   - If non-custodial, the platform must provide guidance or integrate with
-    user-friendly Stellar wallets (e.g., Freighter, Albedo, SEP-0007
-    compatible).
+    user-friendly StarkNet wallets (e.g., Argent X, Braavos).
   - Platform-owned wallets (for minting, escrow deployment) must be highly
     secure.
 
 - **On-Ramp/Off-Ramp Solutions:**
   - The platform must facilitate or guide users to on-ramp/off-ramp solutions
-    for converting USDC on Stellar to/from fiat currencies (e.g., via Stellar
-    ecosystem anchors, MoneyGram integration).
+    for converting stablecoins on StarkNet to/from fiat currencies.
+  - Integration with established Layer 2 bridges and fiat on-ramps is required.
 
 - **Transaction Monitoring:**
-  - The platform backend shall monitor the Stellar network for transaction
+  - The platform backend shall monitor the StarkNet for transaction
     confirmations related to payments and NFT minting/transfers.
+  - Transaction indexing and status tracking must account for StarkNet's proof
+    generation time.
 
 - **Smart Contract Security:**
-  - All custom Soroban smart contracts must undergo thorough security audits.
-  - Mitigation strategies for common vulnerabilities (reentrancy, integer
-    overflow/underflow, access control flaws, etc.) must be implemented.
-  - Checked arithmetic operations in Rust must be used.
-  - Secure upgradeability mechanisms for Soroban contracts must be planned.
+  - All custom Cairo smart contracts must undergo thorough security audits.
+  - Mitigation strategies for common vulnerabilities (access control flaws,
+    reentrancy, etc.) must be implemented.
+  - Formal verification of critical contract components should be considered.
+  - Secure upgradeability mechanisms for Cairo contracts must be planned.
+  - StarkNet-specific security considerations must be addressed.
 
 **6\. AI Integration Requirements**
 
@@ -315,7 +312,8 @@ The platform will cater to the following primary user roles:
   - **Backend:** Node.js, Hono framework, TypeScript.
   - **Database:** MongoDB.
   - **Mobile Application:** React Native.
-  - **Blockchain:** Stellar Network (with Soroban smart contracts).
+  - **Blockchain:** StarkNet (Layer 2 scaling solution for Ethereum).
+  - **Smart Contracts:** Cairo language.
   - **Caching:** Redis (for performance and real-time feature support like chat
     Pub/Sub).
   - **File Storage:**
@@ -347,8 +345,12 @@ The platform will cater to the following primary user roles:
       compliant third-party gateways like Stripe).
     - AML/KYC considerations for crypto payments, potentially leveraging
       third-party KYC providers or integrated ramp services.
-  - **Blockchain Security:** As detailed in Section 5 (Secure wallet management,
-    Soroban smart contract security audits, vulnerability mitigation).
+  - **Blockchain Security:**
+    - Secure wallet management
+    - Cairo smart contract security audits
+    - Vulnerability mitigation
+    - Consideration of StarkNet-specific security requirements
+    - Implementation of proper validium/rollup security measures
   - **Mobile App Security:** Secure storage for tokens/keys on device (Keychain,
     Keystore).
 - **User Experience (UX) & Interface (UI):**
@@ -376,7 +378,7 @@ The platform will cater to the following primary user roles:
   - Application Performance Monitoring (APM) for backend and mobile app.
   - Database monitoring.
   - Centralized log management.
-  - Blockchain monitoring (platform accounts, Soroban contracts).
+  - Blockchain monitoring (platform accounts, Cairo contracts).
   - Business analytics (user activity, event trends, revenue) via a data
     warehouse and BI tools.
   - Monitoring for AI feature performance and accuracy.
@@ -392,14 +394,13 @@ The platform will cater to the following primary user roles:
 
 - **Phase 1: Core Platform & Basic Guest Experience (MVP)**
   - Focus: User registration, basic event creation (planner), RSVP & NFT pass
-    viewing (guest), fiat subscriptions. Simple Stellar classic asset for NFTs
-    initially.
+    viewing (guest), fiat subscriptions. Simple StarkNet NFTs initially.
 - **Phase 2: Enhanced Planner Tools & Initial Vendor Integration**
   - Focus: Advanced event config, vendor profiles/discovery, basic chat,
     template-based AI task suggestions.
 - **Phase 3: Blockchain-Powered Vendor Payments & Advanced AI**
-  - Focus: Soroban escrow for milestone payments, AI cost estimation & vendor
-    recommendations.
+  - Focus: Cairo escrow contracts for milestone payments, AI cost estimation &
+    vendor recommendations.
 - **Phase 4: Full Feature Set & Platform Maturity**
   - Focus: Advanced analytics, refined AI, full dispute resolution, seating
     arrangements, calendar sync, comprehensive chat management.
@@ -408,13 +409,10 @@ The platform will cater to the following primary user roles:
 
 - Specifics of the dispute resolution process for vendor payments (arbitrator
   selection, evidence submission, etc.).
-- Detailed strategy for user wallet creation and management (especially for
+- Detailed strategy for StarkNet wallet creation and management (especially for
   non-crypto-savvy users).
-- Depth of offline functionality required for planners and vendors in early
-  versions.
-- Specific third-party services to be selected (payment gateways, AI model
-  providers, pinning services, KYC providers).
-- Specifics of multi-language support.
+- Handling of proof generation delays in the user experience.
+- StarkNet transaction fee management and optimization.
 
 This document will be updated as the project progresses and more details are
 defined.
