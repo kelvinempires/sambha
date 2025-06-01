@@ -1,20 +1,56 @@
 {
   "name": "sambha",
   "private": true,
+  "description": "Sambha - Blockchain-enhanced event management platform",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "test": "turbo run test",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
+    "format": "prettier --write \"**/*.{ts,tsx,md,json,yaml,yml}\"",
+    "type-check": "turbo run type-check",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "prepare": "husky install",
+    "check-deps": "pnpm audit && pnpm outdated",
+    "dev:backend": "pnpm --filter backend dev",
+    "dev:web": "pnpm --filter web dev",
+    "dev:mobile": "pnpm --filter mobile dev",
+    "dev:landing": "pnpm --filter landing dev",
+    "build:contracts": "pnpm --filter contracts build",
+    "test:contracts": "pnpm --filter contracts test",
+    "setup": "./scripts/setup-dev.sh",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "contracts:deploy": "pnpm --filter contracts deploy",
+    "contracts:verify": "pnpm --filter contracts verify"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@types/node": "^20.10.4",
+    "eslint": "^8.55.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
     "prettier": "^3.5.3",
     "turbo": "^2.5.4",
     "typescript": "5.8.2"
   },
   "packageManager": "pnpm@9.0.0",
   "engines": {
-    "node": ">=18"
-  }
+    "node": ">=18",
+    "pnpm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sambha-team/sambha.git"
+  },
+  "keywords": [
+    "blockchain",
+    "event-management",
+    "starknet",
+    "nft",
+    "web3"
+  ],
+  "license": "MIT"
 }
