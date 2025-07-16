@@ -10,7 +10,7 @@ interface SeatItemProps {
 }
 
 export default function SeatItem({
-  seatId,
+//   seatId,
   guestId,
 }: SeatItemProps) {
   return (
