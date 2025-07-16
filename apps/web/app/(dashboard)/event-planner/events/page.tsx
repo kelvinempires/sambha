@@ -1,11 +1,7 @@
 import React from 'react'
 
-type Props = {}
-
-function page({}: Props) {
+export default function EventIdPage() {
   return (
-    <div>page</div>
+    <div>EventId</div>
   )
 }
-
-export default page
