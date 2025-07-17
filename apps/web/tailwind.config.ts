@@ -17,6 +17,7 @@ const config: Config = {
           darkPurple: "#2A1D52",
           violet: "#C96FFF", // violet
           black: "#000000", // Darker blue for hover
+          deepBlue: "#2B2BCF",
         },
         gray: {
           base: "#6B7280", // Medium gray for disabled text
