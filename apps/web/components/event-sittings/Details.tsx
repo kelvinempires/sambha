@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import bgImage from "../../assets/images/bgImage.png";
 import adaImage from "../../assets/svgs/addImage.svg";
+import FullMapImage from "../../assets/images/FullMap.png";
 import TeamMembers from "./TeamMembers";
 import Link from "next/link";
 import LocationIcon from "components/icons/LocationIcon";
@@ -117,7 +118,7 @@ export default function Details() {
         </div>
 
         {/* ✅ Slug-aware navigation */}
-        <div className="space-y-4 md:max-w-[506px] w-full md:px-4">
+        <div className="space-y-4 md:max-w-[426px] w-full md:px-4">
           <div className="space-y-2 ">
             <h1 className="font-semibold text-primary-darkPurple text-xl md:text-2xl ">
               {event.name}
@@ -143,7 +144,9 @@ export default function Details() {
             {icons.map(({ label, icon }, index) => (
               <div key={index} className="flex flex-col items-center gap-2">
                 <div className="bg-white-90 rounded-full p-4 hover:scale-105 shadow">
-                  {React.cloneElement(icon, { className: "md:w-8 md:h-8 text-primary" })}
+                  {React.cloneElement(icon, {
+                    className: "md:w-8 md:h-8 text-primary",
+                  })}
                 </div>
                 <h1 className="text-sm text-neutral-black font-medium">
                   {label}
@@ -152,7 +155,7 @@ export default function Details() {
             ))}
           </div>
 
-          <div className="pt-4">
+          <div className="pt-2">
             <Link
               href={`/event-planner/events/${event.slug}/create-sitting-chart`}
             >
@@ -168,6 +171,39 @@ export default function Details() {
                 </div>
               </div>
             </Link>
+          </div>
+
+          <div className="space-y-4">
+            <h1 className="border-b text-primary-darkPurple font-semibold py-2">
+              About
+            </h1>
+            <p className="text-sm text-neutral-black">
+              Celebrate the union of Oliver and Emily at the beautiful Rosewood
+              Estate. Enjoy a romantic ceremony, followed by a gourmet dinner
+              and lively dance. Join us for an evening of love, joy, and
+              unforgettable memories as the couple begins their journey
+              together.
+            </p>
+          </div>
+
+          <div className="space-y-2 py-2">
+            <h1 className="border-b text-primary-darkPurple font-semibold py-2">
+              About
+            </h1>
+            <p>The Grand Hall, Rosewood Estate</p>
+            <p className="text-sm text-gray-base">
+              123 Broadway Avenue, NY 10001
+            </p>
+            <div>
+              <Image
+                src={FullMapImage}
+                alt="Background Image"
+                width={500}
+                height={500}
+                quality={100}
+                className="h-full w-full rounded-lg"
+              />
+            </div>
           </div>
         </div>
       </div>
