@@ -53,7 +53,11 @@ export default function EventSlugPage() {
 
       <div className=" ">
         <div className=" w-full">
-          <EventTabs activeTab={activeTab} onTabChange={setActiveTab} />
+          <EventTabs
+            tabs={["Details", "Guests", "Tasks", "Budget"]}
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+          />
           {/* Tab Body */}
           <div className="py-4 w-full">{renderContent()}</div>
         </div>

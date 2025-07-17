@@ -85,7 +85,7 @@ export default function Details() {
           <div className="py-4 space-y-3">
             <TeamMembers />
 
-            {/* table */}
+            {/* table for guest */}
             <div className="flex space-y-3 flex-col">
               <div className="space-y-3 flex justify-between border-b py-4">
                 <div className="flex flex-col">
@@ -177,7 +177,7 @@ export default function Details() {
             <h1 className="border-b text-primary-darkPurple font-semibold py-2">
               About
             </h1>
-            <p className="text-sm text-neutral-black">
+            <p className="text-sm text-neutral-black font-[300]">
               Celebrate the union of Oliver and Emily at the beautiful Rosewood
               Estate. Enjoy a romantic ceremony, followed by a gourmet dinner
               and lively dance. Join us for an evening of love, joy, and
@@ -188,7 +188,7 @@ export default function Details() {
 
           <div className="space-y-2 py-2">
             <h1 className="border-b text-primary-darkPurple font-semibold py-2">
-              About
+              Location
             </h1>
             <p>The Grand Hall, Rosewood Estate</p>
             <p className="text-sm text-gray-base">

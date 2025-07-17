@@ -1,9 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import ElementIcon from "components/icons/ElementIcon";
+import UserIcon from "components/icons/UserIcon";
+import TextIcon from "components/icons/TestIcon";
+import EventTabs from "components/event-sittings/EventTab";
 
 // Pretend we fetched this or have it stored
 const events = [
@@ -15,11 +19,29 @@ const events = [
 ];
 
 export default function CreateSittingChartPage() {
+  const [activeTab, setActiveTab] = useState("Items");
   const { eventSlug } = useParams();
   const decodedSlug = decodeURIComponent(eventSlug as string);
-
-  // Find event by slug
   const currentEvent = events.find((event) => event.slug === decodedSlug);
+
+  const icons = [
+    { label: "Items", component: ElementIcon },
+    { label: "Text", component: TextIcon },
+    { label: "Guests", component: UserIcon },
+  ];
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "Items":
+        return <div>Items content here</div>;
+      case "Text":
+        return <div>Text content here</div>;
+      case "Guests":
+        return <div>Guests content here</div>;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="py-6 space-y-4">
@@ -30,7 +52,7 @@ export default function CreateSittingChartPage() {
           width={10}
           height={10}
           className="w-5 h-5"
-          alt="back svg Image"
+          alt="Back"
         />
         <Link
           href="/event-planner/events"
@@ -43,7 +65,7 @@ export default function CreateSittingChartPage() {
           href={`/event-planner/events/${eventSlug}`}
           className="text-gray-base font-medium md:text-base text-sm"
         >
-          <span>{currentEvent?.slug ?? "Event not found"}</span>
+          <span>{currentEvent?.name ?? "Event not found"}</span>
         </Link>
         <span>/</span>
         <h1 className="font-medium text-primary-darkPurple text-sm md:text-base">
@@ -51,10 +73,28 @@ export default function CreateSittingChartPage() {
         </h1>
       </div>
 
-      {/* Page Title */}
-      <h1 className="text-2xl font-bold">
-        {currentEvent?.name ?? "Event not found"}
-      </h1>
+      <div>
+        {/* tabs + Icons */}
+        <div className="flex w-[254px] border-b items-center justify-between">
+          {icons.map(({ label, component: IconComponent }) => (
+            <div
+              key={label}
+              onClick={() => setActiveTab(label)}
+              className={`flex flex-col items-center space-x-2  py-2 ${
+                activeTab === label
+                  ? "bg-primary-100 text-primary-600 border-b-2 px-4 border-primary-darkPurple"
+                  : "text-gray-600 px-4"
+              }`}
+            >
+              <IconComponent isActive={activeTab === label} />
+              <span className="text-xs">{label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="py-4 w-full">{renderContent()}</div>
     </div>
   );
 }
