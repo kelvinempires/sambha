@@ -34,7 +34,7 @@ function ViewButton() {
 export default function Details() {
   return (
     <div className="py-4 w-full">
-      <div className="flex flex-col md:flex-row gap-4 w-full">
+      <div className="flex flex-col md:flex-row md:gap-4 gap-8 w-full">
         <div className="md:max-w-[658px] w-full">
           <div className="h-[317px] w-full">
             <Image
@@ -72,7 +72,7 @@ export default function Details() {
 
             {/* table */}
             <div className="flex space-y-3 flex-col">
-              <div className="space-y-3 flex md:flex-row flex-col justify-between border-b py-4">
+              <div className="space-y-3 flex justify-between border-b py-4">
                 <div className="flex flex-col">
                   <h2 className="text-lg font-semibold text-primary-darkPurple">
                     Guests
@@ -103,7 +103,28 @@ export default function Details() {
         </div>
 
         {/* ✅ Slug-aware navigation */}
-        <div>
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <h1 className="font-semibold text-primary-darkPurple text-xl md:text-2xl ">
+              {event.name}
+            </h1>
+            <div className="flex justify-between w-full">
+              <div className="flex gap-2">
+                <span>icon</span>
+                The Grand Hall, Rosewood Estate
+              </div>
+
+              <div className="flex gap-2 text-neutral-black test-sm md:text-base ">
+                <span>icon</span>
+                Sat, Aug 20
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <span>icon</span>
+              3:00 PM - 10:00 PM
+            </div>
+          </div>
+
           <Link
             href={`/event-planner/events/${event.slug}/create-sitting-chart`}
           >

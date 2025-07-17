@@ -23,6 +23,11 @@ const config: Config = {
           base: "#6B7280", // Medium gray for disabled text
           100: "#EBECEE",
         },
+
+        neutral: {
+          black: '#070D17'
+        },
+        
         white: {
           base: "#F3F4F6", // Light gray for disabled background
         },

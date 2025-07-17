@@ -27,7 +27,7 @@ function AddButton({
   return (
     <button
       onClick={onClick}
-      className="inline-flex items-center md:w-auto justify-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-primary-darkPurple hover:bg-gray-300 text-sm font-medium transition"
+      className="inline-flex items-center w-full md:w-auto justify-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-primary-darkPurple hover:bg-gray-300 text-sm font-medium transition"
     >
       <PlusIcon className="h-5 w-5" />
       {children ?? "Add Host"}
@@ -111,7 +111,7 @@ export default function TeamMembers() {
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 w-full">
       <div className="space-y-3 flex md:flex-row flex-col justify-between border-b py-4">
         <div className="flex flex-col">
           <h2 className="text-lg font-semibold text-primary-darkPurple">
@@ -135,14 +135,11 @@ export default function TeamMembers() {
           }}
         >
           Add Host
-        </AddButton>{" "}
+        </AddButton>
       </div>
 
       {teamMembers.map((member) => (
-        <div
-          key={member.id}
-          className="space-y-3 flex md:flex-row flex-col justify-between"
-        >
+        <div key={member.id} className="space-y-3 flex justify-between">
           <div className="flex gap-x-4 items-center">
             <Image
               src={member.avatar}
@@ -152,37 +149,40 @@ export default function TeamMembers() {
               className="h-9 w-9 rounded-lg"
             />
             <div className="flex flex-col">
-              <h2 className="text-lg font-semibold text-primary-darkPurple">
+              <h2 className="text-sm md:text-lg font-semibold text-primary-darkPurple">
                 {member.name}
               </h2>
               <p className="text-sm text-gray-base">{member.description}</p>
             </div>
           </div>
-          <div className="flex gap-4 items-center">
-            <button className="text-primary-deepBlue font-medium">
+          <div className="flex flex-col md:flex-row gap-4 items-center">
+            <button className="text-primary-deepBlue font-medium capitalize text-sm md:text-base">
               {member.role}
             </button>
-            {/* edit */}
-            <button
-              onClick={() => editMember(member.id)}
-              className="text-primary-deepBlue"
-            >
-              <EditIcon className="h-4 w-4" />
-            </button>
-            {/* delete */}
-            <button onClick={() => deleteMember(member.id)}>
-              <TrashIcon className="h-4 w-4 text-red-500" />
-            </button>
+
+            <div className="flex gap-4">
+              {/* edit */}
+              <button
+                onClick={() => editMember(member.id)}
+                className="text-primary-deepBlue"
+              >
+                <EditIcon className="h-4 w-4" />
+              </button>
+              {/* delete */}
+              <button onClick={() => deleteMember(member.id)}>
+                <TrashIcon className="h-4 w-4 text-red-500" />
+              </button>
+            </div>
           </div>
         </div>
       ))}
 
       {/* Form to Add or Edit Member */}
       {showModal && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-3">
           <div className="bg-primary-light rounded-xl p-6 max-w-xl w-full space-y-4 shadow-xl">
             <div className="flex justify-between items-center">
-              <h2 className="text-xl font-semibold text-primary-darkPurple">
+              <h2 className="text-sm md:text-xl font-semibold text-primary-darkPurple">
                 Team Members
               </h2>
               <button
@@ -194,7 +194,7 @@ export default function TeamMembers() {
             </div>
 
             <div className="mt-6 border-t pt-4">
-              <h3 className="font-bold text-lg ">
+              <h3 className="font-bold text-sm md:text-lg ">
                 {editingId ? "Edit Member" : "Add Member"}
               </h3>
               <div className="flex flex-col gap-3 mt-2">
@@ -220,7 +220,7 @@ export default function TeamMembers() {
                   />
                 </div>
                 <input
-                  className="border px-3 py-2 rounded"
+                  className="border px-3 py-2 rounded capitalize"
                   placeholder="Role"
                   value={newMember.role}
                   onChange={(e) =>
@@ -228,7 +228,7 @@ export default function TeamMembers() {
                   }
                 />
 
-                <div className="pt-6">
+                <div className="pt-6 w-full md:w-auto text-sm md:text-base">
                   <AddButton onClick={saveMember}>Add Host</AddButton>
                 </div>
               </div>

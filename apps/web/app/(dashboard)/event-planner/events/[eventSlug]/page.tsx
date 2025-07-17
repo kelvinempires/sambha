@@ -30,7 +30,7 @@ export default function EventSlugPage() {
   };
 
   return (
-    <div className="py-6 space-y-4">
+    <div className="py-6 space-y-4 px-2 md:px-0">
       <div className="text-sm text-gray-600 space-x-2 flex items-center">
         <Image
           src="/back.svg"
