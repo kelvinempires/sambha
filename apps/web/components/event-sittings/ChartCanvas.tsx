@@ -11,10 +11,10 @@ interface Seat {
 }
 
 interface ChartCanvasProps {
-    tables: {
-        id?: string;
-        seats?: Seat[];
-    }[];
+  tables: {
+    id?: string;
+    seats?: Seat[];
+  }[];
 }
 
 export default function ChartCanvas({ tables }: ChartCanvasProps) {

@@ -9,7 +9,7 @@ export default function EventPage() {
   const { eventSlug } = useParams();
 
   return (
-    <div className="p-6">
+    <div className="py-6 space-y-4">
       <h1 className=" font-bold">Event:</h1>
       <p>This is a placeholder event detail page.</p>
 
