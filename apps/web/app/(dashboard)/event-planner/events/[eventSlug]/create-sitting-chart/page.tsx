@@ -8,6 +8,8 @@ import ElementIcon from "components/icons/ElementIcon";
 import UserIcon from "components/icons/UserIcon";
 import TextIcon from "components/icons/TestIcon";
 import TableItem from "components/event-sittings/TableItem";
+import AddText from "components/event-sittings/AddText";
+import GuestSelector from "components/event-sittings/GuestSelector";
 
 // Pretend we fetched this or have it stored
 const events = [
@@ -35,9 +37,9 @@ export default function CreateSittingChartPage() {
       case "Items":
         return <TableItem />;
       case "Text":
-        return <div>Text content here</div>;
+        return <AddText />;
       case "Guests":
-        return <div>Guests content here</div>;
+        return <GuestSelector />;
       default:
         return null;
     }
@@ -46,29 +48,32 @@ export default function CreateSittingChartPage() {
   return (
     <div className="py-6 space-y-4">
       {/* Breadcrumb */}
-      <div className="text-sm flex items-center text-gray-600 space-x-2">
+      <div className="md:text-sm text-xs flex items-center whitespace-nowrap text-gray-600 space-x-2">
         <Image
           src="/back.svg"
           width={10}
           height={10}
-          className="w-5 h-5"
+          className="w-4 h-4"
           alt="Back"
         />
         <Link
           href="/event-planner/events"
-          className="text-gray-base font-medium md:text-base text-sm"
+          className="text-gray-base font-medium md:text-base text-xs"
         >
           Events
         </Link>
         <span>/</span>
+
         <Link
           href={`/event-planner/events/${eventSlug}`}
-          className="text-gray-base font-medium md:text-base text-sm"
+          className="text-gray-base font-medium md:text-base text-xs"
         >
           <span>{currentEvent?.name ?? "Event not found"}</span>
         </Link>
+
         <span>/</span>
-        <h1 className="font-medium text-primary-darkPurple text-sm md:text-base">
+
+        <h1 className="font-medium text-primary-darkPurple text-xs md:text-base">
           Create Seating Chart
         </h1>
       </div>
@@ -94,8 +99,10 @@ export default function CreateSittingChartPage() {
       </div>
 
       {/* Content */}
-      <div className="flex w-full h-[743px]">
-        <div className="py-4 w-[30%] p-4 border-r">{renderContent()}</div>
+      <div className="flex flex-col md:flex-row w-full h-[743px]">
+        <div className="py-4 md:max-w-[30%] w-full border-r md:pr-8 px-4 md:px-0 ">
+          {renderContent()}
+        </div>
         <div className="flex-1 bg-white-80 rounded-r-2xl"></div>
       </div>
     </div>
