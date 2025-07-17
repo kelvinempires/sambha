@@ -25,11 +25,12 @@ const config: Config = {
         },
 
         neutral: {
-          black: '#070D17'
+          black: "#070D17",
         },
-        
+
         white: {
           base: "#F3F4F6", // Light gray for disabled background
+          90: "#EBECEE",
         },
         green: {
           900: "#0F2501",

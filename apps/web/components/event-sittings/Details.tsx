@@ -5,7 +5,21 @@ import bgImage from "../../assets/images/bgImage.png";
 import adaImage from "../../assets/svgs/addImage.svg";
 import TeamMembers from "./TeamMembers";
 import Link from "next/link";
-import { Button } from "@sambha/ui/button";
+import LocationIcon from "components/icons/LocationIcon";
+import CalenderIcon from "components/icons/CalenderIcon";
+import ClockIcon from "components/icons/ClockIcon";
+import ChairIcon from "components/icons/ChairIcon";
+import MessageIcon from "components/icons/MessageIcon";
+import ThemeIcon from "components/icons/ThemeIcon";
+import GuestIcon from "components/icons/GuestIcon";
+import PencilIconEdit from "components/icons/PencilIconEdit";
+
+const icons = [
+  { label: "Edit", icon: <PencilIconEdit /> },
+  { label: "Message", icon: <MessageIcon /> },
+  { label: "Theme", icon: <ThemeIcon /> },
+  { label: "Guest", icon: <GuestIcon /> },
+];
 
 const event = {
   id: "abc123",
@@ -35,7 +49,7 @@ export default function Details() {
   return (
     <div className="py-4 w-full">
       <div className="flex flex-col md:flex-row md:gap-4 gap-8 w-full">
-        <div className="md:max-w-[658px] w-full">
+        <div className="md:max-w-[60%] w-full">
           <div className="h-[317px] w-full">
             <Image
               src={bgImage}
@@ -103,33 +117,58 @@ export default function Details() {
         </div>
 
         {/* ✅ Slug-aware navigation */}
-        <div className="space-y-4">
-          <div className="space-y-2">
+        <div className="space-y-4 md:max-w-[506px] w-full md:px-4">
+          <div className="space-y-2 ">
             <h1 className="font-semibold text-primary-darkPurple text-xl md:text-2xl ">
               {event.name}
             </h1>
-            <div className="flex justify-between w-full">
-              <div className="flex gap-2">
-                <span>icon</span>
+            <div className="flex justify-between w-full text-xs md:text-base">
+              <div className="flex gap-2 items-center">
+                <LocationIcon />
                 The Grand Hall, Rosewood Estate
               </div>
 
-              <div className="flex gap-2 text-neutral-black test-sm md:text-base ">
-                <span>icon</span>
-                Sat, Aug 20
+              <div className="flex gap-2 text-neutral-black test-sm md:text-base  items-center">
+                <CalenderIcon /> Sat, Aug 20
               </div>
             </div>
-            <div className="flex gap-2">
-              <span>icon</span>
+            <div className="flex gap-2 items-center text-sm md:text-base">
+              <ClockIcon />
               3:00 PM - 10:00 PM
             </div>
           </div>
 
-          <Link
-            href={`/event-planner/events/${event.slug}/create-sitting-chart`}
-          >
-            <Button>Create Sitting Chart</Button>
-          </Link>
+          {/* icons */}
+          <div className="flex justify-between w-full py-4">
+            {icons.map(({ label, icon }, index) => (
+              <div key={index} className="flex flex-col items-center gap-2">
+                <div className="bg-white-90 rounded-full p-4 hover:scale-105 shadow">
+                  {React.cloneElement(icon, { className: "md:w-8 md:h-8 text-primary" })}
+                </div>
+                <h1 className="text-sm text-neutral-black font-medium">
+                  {label}
+                </h1>
+              </div>
+            ))}
+          </div>
+
+          <div className="pt-4">
+            <Link
+              href={`/event-planner/events/${event.slug}/create-sitting-chart`}
+            >
+              <div className="w-full h-[107px] bg-gradient-primary rounded-2xl gap-4 flex text-primary-light items-center justify-start p-4">
+                <ChairIcon className="w-10 h-10" />
+                <div>
+                  <h1 className="text-lg font-semibold">
+                    Create Seating Chart
+                  </h1>
+                  <p className="max-w-[220px] text-sm">
+                    Assign seats to guests and notify them.
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
