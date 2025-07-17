@@ -200,7 +200,7 @@ export default function TeamMembers() {
               <div className="flex flex-col gap-3 mt-2">
                 <div className="flex gap-2 w-full">
                   <input
-                    className="border px-3 py-2 rounded w-full capitalize"
+                    className="border px-3 py-2 rounded w-full capitalize focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[2px] outline-none"
                     placeholder="Name"
                     value={newMember.name}
                     onChange={(e) =>
@@ -208,7 +208,7 @@ export default function TeamMembers() {
                     }
                   />
                   <input
-                    className="border px-3 py-2 rounded w-full"
+                    className="border px-3 py-2 rounded w-full focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[2px] outline-none"
                     placeholder="Email"
                     value={newMember.description}
                     onChange={(e) =>
@@ -220,7 +220,7 @@ export default function TeamMembers() {
                   />
                 </div>
                 <input
-                  className="border px-3 py-2 rounded capitalize"
+                  className="border px-3 py-2 rounded capitalize focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[2px] outline-none"
                   placeholder="Role"
                   value={newMember.role}
                   onChange={(e) =>

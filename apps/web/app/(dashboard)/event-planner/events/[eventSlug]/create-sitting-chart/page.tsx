@@ -7,7 +7,7 @@ import Image from "next/image";
 import ElementIcon from "components/icons/ElementIcon";
 import UserIcon from "components/icons/UserIcon";
 import TextIcon from "components/icons/TestIcon";
-import EventTabs from "components/event-sittings/EventTab";
+import TableItem from "components/event-sittings/TableItem";
 
 // Pretend we fetched this or have it stored
 const events = [
@@ -33,7 +33,7 @@ export default function CreateSittingChartPage() {
   const renderContent = () => {
     switch (activeTab) {
       case "Items":
-        return <div>Items content here</div>;
+        return <TableItem />;
       case "Text":
         return <div>Text content here</div>;
       case "Guests":
@@ -94,7 +94,10 @@ export default function CreateSittingChartPage() {
       </div>
 
       {/* Content */}
-      <div className="py-4 w-full">{renderContent()}</div>
+      <div className="flex w-full h-[743px]">
+        <div className="py-4 w-[30%] p-4 border-r">{renderContent()}</div>
+        <div className="flex-1 bg-white-80 rounded-r-2xl"></div>
+      </div>
     </div>
   );
 }

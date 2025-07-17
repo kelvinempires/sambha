@@ -13,9 +13,11 @@ export default function EventPage() {
       <h1 className=" font-bold">Event:</h1>
       <p>This is a placeholder event detail page.</p>
 
-      <Link href={`/event-planner/events/${eventSlug}`}>
-        <Button> Create EventSlugPage</Button>
-      </Link>
+      <div>
+        <Link href={`/event-planner/events/${eventSlug}`}>
+          <Button> Create EventSlugPage</Button>
+        </Link>
+      </div>
     </div>
   );
 }

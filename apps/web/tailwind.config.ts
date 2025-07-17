@@ -30,10 +30,15 @@ const config: Config = {
 
         white: {
           base: "#F3F4F6", // Light gray for disabled background
+          80: "#F9F9F9",
           90: "#EBECEE",
         },
         green: {
           900: "#0F2501",
+        },
+
+        purple: {
+          base: "#6E48E3",
         },
       },
 

@@ -28,10 +28,10 @@ const event = {
   name: "Oliver & Emily's Wedding",
 };
 
-function ViewButton() {
+export function ViewButton() {
   return (
     <button className="flex items-center md:w-auto justify-center gap-2 rounded-full text-gray-base  hover:text-gray-400 text-sm font-medium transition">
-      View
+      View all
       <span>
         <Image
           src="/arrow-right.svg"
