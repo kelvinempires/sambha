@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { Button } from "@sambha/ui/button";
 import Image from "next/image";
 import EventTabs from "../../../../../components/event-sittings/EventTab";
 import Details from "../../../../../components/event-sittings/Details";
@@ -52,15 +51,12 @@ export default function EventSlugPage() {
         </h1>
       </div>
 
-      <div className="">
-        <EventTabs activeTab={activeTab} onTabChange={setActiveTab} />
-        {/* Tab Body */}
-        <div className="py-4">{renderContent()}</div>
-
-        {/* Button to go to create-sitting */}
-        <Link href={`/event-planner/events/${event.slug}/create-sitting-chart`}>
-          <Button> Create Sitting Chart</Button>
-        </Link>
+      <div className=" ">
+        <div className=" w-full">
+          <EventTabs activeTab={activeTab} onTabChange={setActiveTab} />
+          {/* Tab Body */}
+          <div className="py-4 w-full">{renderContent()}</div>
+        </div>
       </div>
     </div>
   );

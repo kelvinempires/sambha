@@ -4,6 +4,14 @@ import Image from "next/image";
 import bgImage from "../../assets/images/bgImage.png";
 import adaImage from "../../assets/svgs/addImage.svg";
 import TeamMembers from "./TeamMembers";
+import Link from "next/link";
+import { Button } from "@sambha/ui/button";
+
+const event = {
+  id: "abc123",
+  slug: "oliver-and-emilys-wedding",
+  name: "Oliver & Emily's Wedding",
+};
 
 function ViewButton() {
   return (
@@ -25,8 +33,8 @@ function ViewButton() {
 // details component
 export default function Details() {
   return (
-    <div className="py-4">
-      <div className="flex md:flex-row flex-col gap-4">
+    <div className="py-4 w-full">
+      <div className="flex flex-col md:flex-row gap-4 w-full">
         <div className="md:max-w-[658px] w-full">
           <div className="h-[317px] w-full">
             <Image
@@ -62,6 +70,7 @@ export default function Details() {
           <div className="py-4 space-y-3">
             <TeamMembers />
 
+            {/* table */}
             <div className="flex space-y-3 flex-col">
               <div className="space-y-3 flex md:flex-row flex-col justify-between border-b py-4">
                 <div className="flex flex-col">
@@ -90,11 +99,17 @@ export default function Details() {
                 </div>
               </div>
             </div>
-
-            {/*  */}
           </div>
         </div>
-        <div>2</div>
+
+        {/* ✅ Slug-aware navigation */}
+        <div>
+          <Link
+            href={`/event-planner/events/${event.slug}/create-sitting-chart`}
+          >
+            <Button>Create Sitting Chart</Button>
+          </Link>
+        </div>
       </div>
     </div>
   );
