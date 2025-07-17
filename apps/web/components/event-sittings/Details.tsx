@@ -18,7 +18,7 @@ function AddButton() {
 }
 
 export default function Details() {
-  const hosts = [
+  const hosts = [  
     {
       id: 1,
       name: "Jenny Wilson (You)",
