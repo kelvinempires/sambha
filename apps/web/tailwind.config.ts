@@ -20,6 +20,7 @@ const config: Config = {
         },
         gray: {
           base: "#6B7280", // Medium gray for disabled text
+          100: "#EBECEE",
         },
         white: {
           base: "#F3F4F6", // Light gray for disabled background
@@ -27,7 +28,6 @@ const config: Config = {
         green: {
           900: "#0F2501",
         },
-        
       },
 
       backgroundImage: {

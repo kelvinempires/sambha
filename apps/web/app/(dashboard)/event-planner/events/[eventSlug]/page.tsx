@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Button } from "@sambha/ui/button";
 import Image from "next/image";
 import EventTabs from "../../../../../components/event-sittings/EventTab";
+import Details from "../../../../../components/event-sittings/Details";
 
 const event = {
   id: "abc123",
@@ -12,6 +13,23 @@ const event = {
 };
 
 export default function EventSlugPage() {
+  const [activeTab, setActiveTab] = useState("Details");
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "Details":
+        return <Details />;
+      case "Guests":
+        return <div>Guests content here</div>;
+      case "Tasks":
+        return <div>Tasks content here</div>;
+      case "Budget":
+        return <div>Budget content here</div>;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="py-6 space-y-4">
       <div className="text-sm text-gray-600 space-x-2 flex items-center">
@@ -34,14 +52,16 @@ export default function EventSlugPage() {
         </h1>
       </div>
 
-      <div>
-        <EventTabs />
-      </div>
+      <div className="">
+        <EventTabs activeTab={activeTab} onTabChange={setActiveTab} />
+        {/* Tab Body */}
+        <div className="py-4">{renderContent()}</div>
 
-      {/* Button to go to create-sitting */}
-      <Link href={`/event-planner/events/${event.slug}/create-sitting-chart`}>
-        <Button> Create Sitting Chart</Button>
-      </Link>
+        {/* Button to go to create-sitting */}
+        <Link href={`/event-planner/events/${event.slug}/create-sitting-chart`}>
+          <Button> Create Sitting Chart</Button>
+        </Link>
+      </div>
     </div>
   );
 }
