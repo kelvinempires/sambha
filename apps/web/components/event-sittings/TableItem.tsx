@@ -3,7 +3,7 @@
 
 import React from "react";
 import { ViewButton } from "./Details";
-import { Input } from "@sambha/ui/input";
+import { SearchFilter } from "./AddText";
 
 export default function TableItem() {
   const tableTypes = [
@@ -31,12 +31,9 @@ export default function TableItem() {
   return (
     <div className="flex space-y-2 flex-col w-full py-4 ">
       <div className="w-full flex justify-between">
-        <Input
-          placeholder="Search Items...."
-          className="md:max-w-64 lg:max-w-xl rounded-lg p-6 bg-white-80"
-        />
+        <SearchFilter onSearch={(query) => console.log(query)} />
       </div>
-      
+
       <div className="space-y-3 flex justify-between border-b py-4">
         <h2 className="text-lg font-medium text-primary-darkPurple">Seating</h2>
         <ViewButton />
