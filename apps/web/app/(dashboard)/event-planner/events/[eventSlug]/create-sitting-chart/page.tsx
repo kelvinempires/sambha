@@ -10,7 +10,13 @@ import TextIcon from "components/icons/TestIcon";
 import AddText from "components/event-sittings/AddText";
 import GuestSelector from "components/event-sittings/GuestSelector";
 import TableItems from "components/event-sittings/TableItems";
-import { ArrowLeft, Minus, Plus, UserPlus } from "lucide-react";
+import {
+  ArrowLeft,
+  Minus,
+  Plus,
+  UserRoundPlus,
+  UserRoundX,
+} from "lucide-react";
 
 // Pretend we fetched this or have it stored
 const events = [
@@ -90,8 +96,8 @@ export default function CreateSittingChartPage() {
                 </div>
               </div>
 
-              <div className="flex justify-between items-center text-sm py-4">
-                <span className="rounded-full text-center flex items-center justify-center font-normal bg-white-90 w-8 h-8">
+              <div className="flex justify-between items-center text-sm pt-4">
+                <span className="rounded-full text-center flex items-center justify-center bg-purple-10 text-gradientText font-medium w-8 h-8">
                   1
                 </span>
 
@@ -99,7 +105,16 @@ export default function CreateSittingChartPage() {
                   <button className="px-4 py-2 bg-white-90 rounded-full">
                     Kathryn Murphy
                   </button>
-                <UserPlus className="w-8 h-8 p-2 rounded-full bg-red-10 text-red-base cursor-pointer" />
+                  <UserRoundX className="w-8 h-8 p-2 rounded-full bg-red-10 text-red-base cursor-pointer" />
+                </div>
+              </div>
+              <div className="flex justify-between items-center text-sm ">
+                <span className="rounded-full text-center flex items-center justify-center  bg-purple-10 text-gradientText font-medium w-8 h-8">
+                  2
+                </span>
+
+                <div className="text-sm flex items-center font-normal gap-2">
+                  <UserRoundPlus className="w-8 h-8 p-2 rounded-full bg-white-90 text-white cursor-pointer" />
                 </div>
               </div>
             </div>

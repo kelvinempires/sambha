@@ -32,11 +32,14 @@ export default function TableItems({ onSelectTable }: TableItemsProps) {
       name: "Large Table",
       className: "w-32 h-28 bg-purple-base border-primary-black border-4",
     },
+    {
+      name: "Seating row",
+      className: "w-4 h-4 bg-purple-base rounded-full",
+      circleTables: Array.from({ length: 6 }, () => ({
+        className: "w-4 h-4 bg-purple-base rounded-full",
+      })),
+    },
   ];
-
-  const roundTables = Array.from({ length: 6 }, () => ({
-    className: "w-4 h-4 bg-purple-base rounded-full",
-  }));
 
   const handleTableClick = (name: string) => {
     const selected = name === selectedTable ? null : name;
@@ -45,6 +48,7 @@ export default function TableItems({ onSelectTable }: TableItemsProps) {
     // If selected is not null, call onSelectTable with the data
     if (selected) {
       const table = tableTypes.find((t) => t.name === selected);
+
       if (table) {
         onSelectTable({
           id: tableTypes.indexOf(table),
@@ -68,27 +72,30 @@ export default function TableItems({ onSelectTable }: TableItemsProps) {
           </div>
 
           {/* Shape selection */}
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 items-center py-4">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4 items-center py-4">
             {tableTypes.map((table, index) => (
               <div
                 key={index}
                 className="flex flex-col cursor-pointer"
                 onClick={() => handleTableClick(table.name)}
               >
-                <div className={table.className} />
+                {/* Render either main shape OR looped circles */}
+                {!table.circleTables ? (
+
+                  // Single shape table
+                  <div className={table.className} />
+                ) : (
+                    
+                  // Seating row (looped circles)
+                  <div className="flex ">
+                    {table.circleTables.map((circle, idx) => (
+                      <div key={idx} className={circle.className} />
+                    ))}
+                  </div>
+                )}
                 <h6 className="text-gray-base text-sm mt-1">{table.name}</h6>
               </div>
             ))}
-          </div>
-
-          {/* Round Seating Display */}
-          <div>
-            <div className="flex gap-2">
-              {roundTables.map((seat, index) => (
-                <div key={index} className={seat.className} />
-              ))}
-            </div>
-            <h6 className="text-gray-base text-sm mt-2">Seating Row</h6>
           </div>
         </>
       )}
