@@ -40,6 +40,11 @@ const config: Config = {
         purple: {
           base: "#6E48E3",
         },
+
+        red: {
+          base: "#DD524D",
+          10: "#FBEAE9",
+        },
       },
 
       backgroundImage: {
