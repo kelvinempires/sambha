@@ -21,7 +21,7 @@ export default function TableItems({ onSelectTable }: TableItemsProps) {
   const tableTypes = [
     {
       name: "Long Table",
-      className: "w-20 h-10 bg-purple-base border-primary-black border-4",
+      className: "w-20 h-10 bg-purple-base border-primary-black border-4 ",
     },
     {
       name: "Round Table",
@@ -34,7 +34,7 @@ export default function TableItems({ onSelectTable }: TableItemsProps) {
     },
     {
       name: "Seating row",
-      className: "w-4 h-4 bg-purple-base rounded-full",
+      // className: "w-4 h-4 bg-purple-base rounded-full",
       circleTables: Array.from({ length: 6 }, () => ({
         className: "w-4 h-4 bg-purple-base rounded-full",
       })),
@@ -52,7 +52,8 @@ export default function TableItems({ onSelectTable }: TableItemsProps) {
       if (table) {
         onSelectTable({
           id: tableTypes.indexOf(table),
-          className: table.className,
+          // className: table.className,
+          className: table.className ?? "",
           name: table.name,
         });
       }
@@ -81,11 +82,9 @@ export default function TableItems({ onSelectTable }: TableItemsProps) {
               >
                 {/* Render either main shape OR looped circles */}
                 {!table.circleTables ? (
-
                   // Single shape table
                   <div className={table.className} />
                 ) : (
-                    
                   // Seating row (looped circles)
                   <div className="flex ">
                     {table.circleTables.map((circle, idx) => (

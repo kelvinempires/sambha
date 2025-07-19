@@ -109,7 +109,7 @@ export default function CreateSittingChartPage() {
               <div className="flex justify-between items-center py-4">
                 <h1 className="text-base font-medium">Name</h1>
                 <span className="text-lg text-purple-base font-normal">
-                  Table 1
+                  Table {selectedTable.id + 1}
                 </span>
               </div>
 
@@ -213,7 +213,7 @@ export default function CreateSittingChartPage() {
         </h1>
       </div>
       <div>
-        {/* tabs + Icons */}
+        {/* tabs + Icons navigations*/}
         <div className="flex w-[254px] border-b items-center justify-between">
           {icons.map(({ label, component: IconComponent }) => (
             <div
@@ -232,6 +232,7 @@ export default function CreateSittingChartPage() {
         </div>
       </div>
 
+      {/* to render clickable tabs content here */}
       <div
         className={`flex w-full h-[743px] ${
           selectedTable
@@ -245,16 +246,25 @@ export default function CreateSittingChartPage() {
           {renderContent()}
         </div>
 
+        {/* to display number of sitted guest */}
         <div className="flex-1 bg-white-80 rounded-r-2xl flex items-center justify-center relative ">
           {selectedTable ? (
             <div className="relative">
               {/* Table Shape */}
-              <div className={selectedTable.className} />
+              {/* <div className={selectedTable.className} /> */}
+
+              {/* Table Shape with Number */}
+              <div
+                className={`${selectedTable.className} flex items-center justify-center text-white font-medium text-primary-light text-sm`}
+              >
+                Table {selectedTable.id + 1}
+              </div>
 
               {/* Seated Guests Around Table */}
               <div className="absolute inset-0">
                 {Array.from({ length: seatCount }).map((_, index) => {
                   const angle = index * (360 / seatCount) - 90; // Start from top
+
                   const radius = 100; // Distance from table center
                   const x = Math.cos((angle * Math.PI) / 180) * radius;
                   const y = Math.sin((angle * Math.PI) / 180) * radius;
@@ -270,7 +280,7 @@ export default function CreateSittingChartPage() {
                       }}
                     >
                       {/* Seat Number */}
-                      <div className="rounded-full bg-purple-100 text-purple-800 w-8 h-8 flex items-center justify-center mb-1 font-medium">
+                      <div className="rounded-full text-center flex items-center justify-center bg-purple-base text-primary-light font-medium w-8 h-8">
                         {index + 1}
                       </div>
 
