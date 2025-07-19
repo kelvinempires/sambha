@@ -99,7 +99,7 @@ export default function CreateSittingChartPage() {
                   <button className="px-4 py-2 bg-white-90 rounded-full">
                     Kathryn Murphy
                   </button>
-                  <UserPlus className="w-8 h-8 p-2 rounded-full bg-white-90 text-red-base cursor-pointer" />
+                <UserPlus className="w-8 h-8 p-2 rounded-full bg-red-10 text-red-base cursor-pointer" />
                 </div>
               </div>
             </div>
@@ -177,7 +177,7 @@ export default function CreateSittingChartPage() {
         }`}
       >
         <div
-          className={`py-4 md:max-w-[30%] w-full border-r md:pr-8 px-4 md:px-0 ${selectedTable ? "md:pl-8" : ""}`}
+          className={`md:max-w-[30%] w-full md:pr-8 px-4 md:px-0 ${selectedTable ? "md:pl-4  border-l" : "border-r"}`}
         >
           {renderContent()}
         </div>

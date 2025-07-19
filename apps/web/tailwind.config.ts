@@ -39,6 +39,7 @@ const config: Config = {
 
         purple: {
           base: "#6E48E3",
+          10: "#6E48E312",
         },
 
         red: {
