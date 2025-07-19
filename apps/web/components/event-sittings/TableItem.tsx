@@ -3,7 +3,7 @@
 
 import React from "react";
 import { ViewButton } from "./Details";
-import { SearchFilter } from "./AddText";
+import { SearchFilter } from "./GuestSelector";
 
 export default function TableItem() {
   const tableTypes = [

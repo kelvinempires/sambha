@@ -20,6 +20,8 @@ const events = [
   },
 ];
 
+
+
 export default function CreateSittingChartPage() {
   const [activeTab, setActiveTab] = useState("Items");
   const { eventSlug } = useParams();
@@ -85,7 +87,7 @@ export default function CreateSittingChartPage() {
             <div
               key={label}
               onClick={() => setActiveTab(label)}
-              className={`flex flex-col items-center space-x-2  py-2 ${
+              className={`flex flex-col items-center  py-2 ${
                 activeTab === label
                   ? "bg-primary-100 text-primary-600 border-b-2 px-4 border-primary-darkPurple"
                   : "text-gray-600 px-4"

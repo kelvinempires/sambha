@@ -1,12 +1,16 @@
 "use client";
-
 import { Button } from "@sambha/ui/button";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+// import { useParams } from "next/navigation";
 import React from "react";
 
 export default function EventPage() {
-  const { eventSlug } = useParams();
+  // const { eventSlug } = useParams();
+  const event = {
+    id: "abc123",
+    slug: "oliver-and-emilys-wedding",
+    name: "Oliver & Emily's Wedding",
+  };
 
   return (
     <div className="py-6 space-y-4">
@@ -14,7 +18,7 @@ export default function EventPage() {
       <p>This is a placeholder event detail page.</p>
 
       <div>
-        <Link href={`/event-planner/events/${eventSlug}`}>
+        <Link href={`/event-planner/events/${event.slug}`}>
           <Button> Create EventSlugPage</Button>
         </Link>
       </div>
