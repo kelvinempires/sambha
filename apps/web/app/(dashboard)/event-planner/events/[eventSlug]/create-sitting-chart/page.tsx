@@ -18,7 +18,7 @@ import {
   UserRoundX,
 } from "lucide-react";
 
-// Pretend we fetched this or have it stored
+// Fake fetched data
 const events = [
   {
     id: "abc123",
@@ -26,6 +26,17 @@ const events = [
     name: "Oliver & Emily's Wedding",
   },
 ];
+
+//  Define types
+type TableShape = {
+  id: number;
+  className: string;
+  name: string;
+};
+
+type Guest = {
+  name: string;
+};
 
 export default function CreateSittingChartPage() {
   const [activeTab, setActiveTab] = useState("Items");
@@ -39,18 +50,47 @@ export default function CreateSittingChartPage() {
     { label: "Guests", component: UserIcon },
   ];
 
-  // types.ts or at the top of your file
-  type TableShape = {
-    id: number;
-    className: string;
-    name: string; // 👈 Add this line
-  };
-
   const [selectedTable, setSelectedTable] = useState<TableShape | null>(null);
   const [seatCount, setSeatCount] = useState<number>(1);
+  const [assignedSeats, setAssignedSeats] = useState<(Guest | null)[]>([null]);
 
-  const incrementSeat = () => setSeatCount((prev) => prev + 1);
-  const decrementSeat = () => setSeatCount((prev) => (prev > 1 ? prev - 1 : 1));
+
+  // to add numder
+  const incrementSeat = () => {
+    setSeatCount((prev) => {
+      setAssignedSeats((prevSeats) => [...prevSeats, null]);
+      return prev + 1;
+    });
+  };
+
+
+  //  to reduce the number added
+  const decrementSeat = () => {
+    setSeatCount((prev) => {
+      if (prev <= 1) return prev;
+      setAssignedSeats((prevSeats) => prevSeats.slice(0, -1));
+      return prev - 1;
+    });
+  };
+
+  // add guest
+  const addGuest = (index: number) => {
+    
+    // use prompt to add a guest since no ui for that
+    const name = prompt("Enter guest name");
+    if (!name) return;
+    const updated = [...assignedSeats];
+    updated[index] = { name };
+    setAssignedSeats(updated);
+  };
+
+
+  // remove guest
+  const removeGuest = (index: number) => {
+    const updated = [...assignedSeats];
+    updated[index] = null;
+    setAssignedSeats(updated);
+  };
 
   const renderContent = () => {
     switch (activeTab) {
@@ -81,6 +121,7 @@ export default function CreateSittingChartPage() {
                 <span>Seats</span>
               </div>
 
+              {/* seat count control */}
               <div className="flex justify-between items-center py-4">
                 <span className="text-lg font-normal">Number of seats</span>
                 <div className="flex gap-3 items-center">
@@ -96,27 +137,38 @@ export default function CreateSittingChartPage() {
                 </div>
               </div>
 
-              <div className="flex justify-between items-center text-sm pt-4">
-                <span className="rounded-full text-center flex items-center justify-center bg-purple-10 text-gradientText font-medium w-8 h-8">
-                  1
-                </span>
+              {/* Dynamic seat rows */}
+              {Array.from({ length: seatCount }).map((_, index) => (
+                <div
+                  key={index}
+                  className="flex justify-between items-center text-sm py-1"
+                >
+                  {/* Seat number */}
+                  <span className="rounded-full text-center flex items-center justify-center bg-purple-10 text-gradientText font-medium w-8 h-8">
+                    {index + 1}
+                  </span>
 
-                <div className="text-sm flex items-center font-normal gap-2">
-                  <button className="px-4 py-2 bg-white-90 rounded-full">
-                    Kathryn Murphy
-                  </button>
-                  <UserRoundX className="w-8 h-8 p-2 rounded-full bg-red-10 text-red-base cursor-pointer" />
+                  {/* If seat is assigned, show name and remove icon. Else show + icon */}
+                  {assignedSeats[index] ? (
+                    <div className="text-sm flex items-center font-normal gap-2">
+                      <button className="px-4 py-2 bg-white-90 rounded-full">
+                        {assignedSeats[index].name}
+                      </button>
+                      <UserRoundX
+                        className="w-8 h-8 p-2 rounded-full bg-red-10 text-red-base cursor-pointer"
+                        onClick={() => removeGuest(index)}
+                      />
+                    </div>
+                  ) : (
+                    <div className="text-sm flex items-center font-normal gap-2">
+                      <UserRoundPlus
+                        className="w-8 h-8 p-2 rounded-full bg-white-90 text-white cursor-pointer"
+                        onClick={() => addGuest(index)}
+                      />
+                    </div>
+                  )}
                 </div>
-              </div>
-              <div className="flex justify-between items-center text-sm ">
-                <span className="rounded-full text-center flex items-center justify-center  bg-purple-10 text-gradientText font-medium w-8 h-8">
-                  2
-                </span>
-
-                <div className="text-sm flex items-center font-normal gap-2">
-                  <UserRoundPlus className="w-8 h-8 p-2 rounded-full bg-white-90 text-white cursor-pointer" />
-                </div>
-              </div>
+              ))}
             </div>
           </>
         ) : (

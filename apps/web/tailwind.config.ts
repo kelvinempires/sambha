@@ -12,7 +12,7 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          light: "#FFFFFF",
+          light: "#FFFFFF", 
           main: "#2B2BCF", // Blue
           darkPurple: "#2A1D52",
           violet: "#C96FFF", // violet
