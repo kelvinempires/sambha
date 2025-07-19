@@ -37,7 +37,7 @@ export default function FilterGuest({ filteredGuests }: Props) {
               Seated Guests
               {showSeated ? <FiChevronDown /> : <FiChevronRight />}
             </span>
-            <span className="text-gray-500">({seatedGuests.length})</span>
+          <span className="text-gray-500">{seatedGuests.length}</span>
           </div>
 
           {showSeated &&
@@ -64,8 +64,9 @@ export default function FilterGuest({ filteredGuests }: Props) {
               Unseated Guests
               {showUnseated ? <FiChevronDown /> : <FiChevronRight />}
             </span>
-            <span className="text-gray-500">({unseatedGuests.length})</span>
+            <span className="text-gray-500">{unseatedGuests.length}</span>
           </div>
+
           {showUnseated &&
             unseatedGuests.map((guest) => (
               <div

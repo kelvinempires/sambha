@@ -4,6 +4,7 @@
 import React from "react";
 import { ViewButton } from "./Details";
 import { SearchFilter } from "./GuestSelector";
+import { ArrowLeft } from "lucide-react";
 
 export default function TableItem() {
   const tableTypes = [
@@ -57,6 +58,18 @@ export default function TableItem() {
           ))}
         </div>
         <h6 className="text-gray-base text-sm mt-1">Seating Row</h6>
+      </div>
+
+      <div>
+        <div className="flex gap-2 border-b py-3">
+          <ArrowLeft className="w-4 h-4 text-gray-500" />
+          <span className="">Font</span>
+        </div>
+
+        <div className="flex justify-between items-center py-4">
+          <h1>Name</h1>
+          <span> Table 1</span>
+        </div>
       </div>
     </div>
   );
