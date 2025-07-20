@@ -149,7 +149,7 @@ export default function TeamMembers() {
               className="h-9 w-9 rounded-lg"
             />
             <div className="flex flex-col">
-              <h2 className="text-sm md:text-lg font-semibold text-primary-darkPurple">
+              <h2 className="text-sm md:text-lg font-semibold text-primary-darkPurple capitalize">
                 {member.name}
               </h2>
               <p className="text-sm text-gray-base">{member.description}</p>
