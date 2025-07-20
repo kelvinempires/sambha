@@ -41,7 +41,7 @@ const vendorSidebarItems = [
   },
 ];
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }): React.JSX.Element {
   const role: string = "guest"; // or get from your auth logic
 
   let sidebarItems: { icon: ReactNode; label: string; url: string }[] = [];

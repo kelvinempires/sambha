@@ -1,5 +1,8 @@
-type Props = {};
+interface PageProps {
+  params?: Record<string, string>;
+  searchParams?: Record<string, string | string[]>;
+}
 
-export default function page({}: Props) {
+function Page(props: PageProps) {
   return <div>page</div>;
 }
