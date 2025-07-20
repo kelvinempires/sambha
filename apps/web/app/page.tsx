@@ -7,7 +7,7 @@ export default function Home(): React.ReactElement {
 
 
         <Button>Create New Event +</Button>
-
+        <h1 className="text-3xl font-bold underline g">Home</h1>
     </div>
   );
 }
