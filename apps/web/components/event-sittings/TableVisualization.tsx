@@ -22,11 +22,27 @@ export const TableVisualization = ({
   seatCount,
   assignedSeats,
 }: TableVisualizationProps) => (
-  <div className="flex-1 bg-white-80 rounded-r-2xl flex items-center justify-center relative">
+  <div className="flex-1 bg-white-base rounded-r-2xl flex items-center justify-center relative">
+    {/* Grid Background */}
+    <div
+      className="absolute w-[600px] h-[500px] mx-auto bg-primary-light" // Set your desired width/height
+      style={{
+        backgroundImage: `
+        linear-gradient(to right, #98A2B3 1px, transparent 1px),
+        linear-gradient(to bottom, #98A2B3 1px, transparent 1px)
+      `,
+        backgroundSize: "40px 40px",
+        backgroundPosition: "center center",
+        zIndex: 0,
+        opacity: 0.8,
+      }}
+    ></div>
+
     {selectedTable ? (
-      <div className="relative">
+      <div className="relative z-10">
+        {/* Added z-10 to ensure content appears above grid */}
         <div
-          className={`${selectedTable.className} flex items-center justify-center text-white font-medium text-primary-light  text-sm`}
+          className={`${selectedTable.className} flex items-center justify-center text-white font-medium text-primary-light text-sm`}
         >
           Table {selectedTable.id + 1}
         </div>
@@ -63,8 +79,8 @@ export const TableVisualization = ({
                       <div className="w-8 h-8 rounded-full bg-purple-base"></div>
 
                       {/* Rotated text - centered version */}
-                      <div className="absolute inset-0 flex justify-center items-center ">
-                        <div className="transform -rotate-45 origin-center text-sm font-medium text-primary-darkPurple  capitalize whitespace-nowrap">
+                      <div className="absolute inset-0 flex justify-center items-center">
+                        <div className="transform -rotate-45 origin-center text-sm font-medium text-primary-darkPurple capitalize whitespace-nowrap">
                           {assignedSeats[index].name}
                         </div>
                       </div>
@@ -77,7 +93,7 @@ export const TableVisualization = ({
         </div>
       </div>
     ) : (
-      <p className="text-gray-500">Click a table item to display here</p>
+      <p className="text-gray-500 z-10">Click a table item to display here</p>
     )}
   </div>
 );

@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import avatar from "../../assets/images/avatar.png";
 import gradient from "../../assets/images/gradient.png";
 import PlusIcon from "components/icons/PlusIcon";
@@ -13,7 +13,7 @@ interface Member {
   id: number;
   name: string;
   description: string;
-  avatar: any;
+  avatar: string | StaticImageData; // Properly typed for Next.js Image component
   role: string;
 }
 

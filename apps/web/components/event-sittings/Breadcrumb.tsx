@@ -24,7 +24,7 @@ export const Breadcrumb = ({ eventSlug, currentEvent }: BreadcrumbProps) => (
     >
       Events
     </Link>
-    {/* <span>/</span> */}
+    <span>/</span>
     <Link
       href={`/event-planner/events/${eventSlug}`}
       className="text-gray-base font-medium md:text-base text-xs"
