@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import React from "react";
 import "./globals.css";
+import { DisplayModal } from "../components/DisplayModal";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -23,7 +24,33 @@ export default function RootLayout({
 }>): React.ReactElement {
   return (
     <html lang="en">
-      <body className={``}>{children}</body>
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/Fractul-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Fractul-Bold.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Fractul-Light.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body>
+        <DisplayModal />
+        {children}
+      </body>
     </html>
   );
 }

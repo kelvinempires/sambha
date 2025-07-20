@@ -72,7 +72,7 @@ const SambhaSidebar = ({ sidebarItems }: { sidebarItems: SidebarItem[] }) => {
       <section className=" text-sidebar-foreground md:rounded-xl shadow-[0px_0px_4px_0px_#0000001A] p-4  overflow-y-auto h-full md:h-[calc(100vh-70px)] no-scrollbar w-full">
         <div className="flex items-center mb-6 gap-3">
           <div>
-            <h2 className="font-normal bg-gradientText bg-clip-text text-transparent font-semibold mt-2 text-4xl">
+            <h2 className="bg-gradientText bg-clip-text text-transparent font-semibold mt-2 text-4xl">
               Sambha
             </h2>
           </div>
