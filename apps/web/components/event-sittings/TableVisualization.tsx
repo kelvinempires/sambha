@@ -11,14 +11,11 @@ export interface TableShape {
   name: string;
 }
 
-
 interface TableVisualizationProps {
-  //   selectedTable?: { id: number; className: string }\;
   selectedTable?: TableShape; // Make it optional instead of null
   seatCount: number;
   assignedSeats: (Guest | null)[];
 }
-
 
 export const TableVisualization = ({
   selectedTable,
@@ -29,7 +26,7 @@ export const TableVisualization = ({
     {selectedTable ? (
       <div className="relative">
         <div
-          className={`${selectedTable.className} flex items-center justify-center text-white font-medium text-primary-light text-sm`}
+          className={`${selectedTable.className} flex items-center justify-center text-white font-medium text-primary-light  text-sm`}
         >
           Table {selectedTable.id + 1}
         </div>
@@ -51,15 +48,29 @@ export const TableVisualization = ({
                   transform: "translate(-50%, -50%)",
                 }}
               >
-                <div className="rounded-full text-center flex items-center justify-center bg-purple-base text-primary-light font-medium w-8 h-8">
-                  {index + 1}
-                </div>
+                <div className="relative">
+                  {/* Seat number (hidden when assigned) */}
+                  {!assignedSeats[index] && (
+                    <div className="rounded-full hover:scale-105 cursor-pointer text-center flex items-center justify-center bg-purple-base text-primary-light font-medium w-8 h-8">
+                      {index + 1}
+                    </div>
+                  )}
 
-                {assignedSeats[index] && (
-                  <div className="bg-white px-3 py-1 rounded-full shadow-sm text-sm whitespace-nowrap capitalize">
-                    {assignedSeats[index]?.name}
-                  </div>
-                )}
+                  {/* Passenger name (shown when assigned) */}
+                  {assignedSeats[index] && (
+                    <div className="relative flex flex-col h-full justify-center items-center hover:scale-105 cursor-pointer">
+                      {/* Circular background */}
+                      <div className="w-8 h-8 rounded-full bg-purple-base"></div>
+
+                      {/* Rotated text - centered version */}
+                      <div className="absolute inset-0 flex justify-center items-center ">
+                        <div className="transform -rotate-45 origin-center text-sm font-medium text-primary-darkPurple  capitalize whitespace-nowrap">
+                          {assignedSeats[index].name}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             );
           })}
