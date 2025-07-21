@@ -63,5 +63,10 @@
     "@radix-ui/react-tooltip": "^1.2.7",
     "class-variance-authority": "^0.7.1",
     "lucide-react": "^0.525.0"
+  },
+  "resolutions": {
+    "@eslint/plugin-kit": "^0.3.3",
+    "brace-expansion": "^2.0.2",
+    "on-headers": "^1.1.0"
   }
 }
