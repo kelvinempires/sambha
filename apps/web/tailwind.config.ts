@@ -5,14 +5,13 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    // This line ensures Tailwind scans your shared UI components.. tailwind configured for [packages/ui/src]
     "../../packages/ui/src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
         primary: {
-          light: "#FFFFFF", 
+          light: "#FFFFFF",
           main: "#2B2BCF", // Blue
           darkPurple: "#2A1D52",
           violet: "#C96FFF", // violet

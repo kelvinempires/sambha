@@ -20,6 +20,7 @@
     "clsx": "^2.1.1",
     "jotai": "^2.12.5",
     "lucide-react": "^0.525.0",
+    "postcss": "^8.5.6",
     "next": "^15.4.2",
     "react": "^19.1.0",
     "react-dnd": "^16.0.1",
@@ -30,6 +31,8 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "eslint-config-next": "15.4.2",
     "@eslint/plugin-kit": "^0.3.3",
     "@sambha/eslint-config": "workspace:*",
     "@sambha/typescript-config": "workspace:*",
@@ -37,10 +40,20 @@
     "@types/node": "^24.0.15",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
+    "@types/webpack": "5.28.5",
+    "@zeit/next-css": "^1.0.1",
     "autoprefixer": "^10.4.21",
+    "css-loader": "^7.1.2",
     "eslint": "^9.31.0",
+    "next-compose-plugins": "^2.2.1",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.11",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^3.4.3",
     "typescript": "5.8.3"
+  },
+  "resolutions": {
+    "@eslint/plugin-kit": "^0.3.3",
+    "brace-expansion": "^2.0.2",
+    "on-headers": "^1.1.0"
   }
 }
