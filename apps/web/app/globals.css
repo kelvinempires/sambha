@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Fractul";
+  src: url("/apps/web/app/fonts/fractul/fonnts.com-fractul-medium.otf")
+    format("woff2");
+}

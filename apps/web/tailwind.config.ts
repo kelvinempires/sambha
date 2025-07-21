@@ -25,6 +25,9 @@ const config: Config = {
           base: "#F3F4F6", // Light gray for disabled background
         },
       },
+       fontFamily: {
+        fractul: ["Fractul", "sans-serif"],
+      },
       sidebar: "#2A1D52",
       backgroundImage: {
         "gradient-primary": "linear-gradient(to bottom,  #C96FFF, #2B2BCF)",
