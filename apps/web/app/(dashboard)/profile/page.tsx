@@ -1,10 +1,10 @@
-import { PlaceHolder } from "@sambha/ui/icons";
 import React from "react";
+import { Profile } from "../../../components/profile/Profile";
 
 export default function ProfilePage() {
   return (
     <div>
-      <PlaceHolder />
+      <Profile />
     </div>
   );
 }

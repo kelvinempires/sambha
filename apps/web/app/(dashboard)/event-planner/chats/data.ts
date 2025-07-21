@@ -5,6 +5,45 @@ export const userData = {
   name: "Jenny Wilson",
   email: "jenny@gmail.com",
   image: "https://randomuser.me/api/portraits/men/1.jpg",
+  description:
+    "This is a long bio about Egun’s events. Let us help you plan your events.",
+  hosts: [
+    {
+      name: "Tech Summit 2025",
+      host: "InnovateX",
+      date: "2025-07-20T10:00:00Z",
+      todo: 12,
+      vanue: "Eko Hotel Convention Center",
+    },
+    {
+      name: "Creative Design Workshop",
+      host: "Pixel Studio",
+      date: 1721558400000,
+      todo: 8,
+      vanue: "Lagos Tech Hub",
+    },
+    {
+      name: "AI & Machine Learning Meetup",
+      host: "DataMinds",
+      date: "2025-08-01T15:30:00Z",
+      todo: 5,
+      vanue: "Yaba Co-working Space",
+    },
+    {
+      name: "Startup Pitch Night",
+      host: "VC Africa",
+      date: "2025-07-28T18:00:00Z",
+      todo: 3,
+      vanue: "Lekki Innovation Centre",
+    },
+    {
+      name: "DevOps Bootcamp",
+      host: "CloudMasters",
+      date: 1722158400000,
+      todo: 10,
+      vanue: "Mainland Conference Hall",
+    },
+  ],
 };
 
 export const users: Record<string, User> = {

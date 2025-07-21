@@ -18,6 +18,9 @@ const config: Config = {
           violet: "#C96FFF",
           dark: "#2A1D52",
         },
+        blue: {
+          400: "#162844",
+        },
         green: {
           base: "#30D158",
         },
@@ -25,6 +28,7 @@ const config: Config = {
           base: "#6B7280",
           light: "#F3F4F6",
           dark: "#667185",
+          200: "#E4E7EC",
         },
         error: {
           base: "#DC2626",
@@ -35,6 +39,8 @@ const config: Config = {
           base: "#98A2B3",
           100: "#F2F4F5",
           200: "#F0F2F5",
+          400: "#52575C",
+          900: "#101828",
         },
         dark: {
           base: "#090A0A",
