@@ -13,6 +13,7 @@ import { Button } from "@sambha/ui/button";
 import { IoIosArrowBack } from "react-icons/io";
 import { Host } from "../../types/chats/data";
 import { v4 as uuidv4 } from "uuid";
+import { PlaceHolder } from "@sambha/ui/icons";
 
 export const CreateGroup = () => {
   const [users, setUsers] = useAtom(usersAtom);
@@ -97,13 +98,15 @@ export const CreateGroup = () => {
           <IoIosArrowBack /> Back
         </button>
         <div className="flex flex-col space-y-2">
-          <div className="relative bg-gradient-primary text-primary-light focus-visible:ring-primary-dark rounded-full w-24 h-24">
-            {groupImage && (
+          <div className="relative w-24 h-24">
+            {groupImage ? (
               <img
                 src={URL.createObjectURL(groupImage)}
                 alt="Preview Image"
                 className="w-24 h-24 rounded-full object-cover"
               />
+            ) : (
+              <PlaceHolder />
             )}
 
             <button

@@ -2,7 +2,8 @@ import { User } from "../../../../types/chats/data";
 
 export const userData = {
   id: "me",
-  name: "The Royal Consult",
+  name: "Jenny Wilson",
+  email: "jenny@gmail.com",
   image: "https://randomuser.me/api/portraits/men/1.jpg",
 };
 
