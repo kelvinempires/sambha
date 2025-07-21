@@ -6,44 +6,44 @@ import type { FC } from "react";
 interface ImageGalleryProps {
   images: string[];
   mainImageHeight?: string;
-  mainImageWidth?: string; // New prop
+  containerWidth?: string;
   thumbnailHeight?: string;
-  thumbnailWidth?: string; // New prop
+  thumbnailWidth?: string;
   isLoading?: boolean;
-  thumbnailCount?: number; // Number of skeleton thumbnails to show
+  thumbnailCount?: number;
 }
 
 export const ImageGallery: FC<ImageGalleryProps> = ({
-  images,
+  images = [],
   mainImageHeight = "aspect-[4/3]",
-  mainImageWidth = "w-full", // Default value
+  containerWidth = "w-full",
   thumbnailHeight = "h-24",
-  thumbnailWidth = "w-24", // Default value
+  thumbnailWidth = "w-24",
   isLoading = false,
-  thumbnailCount = 4, // Default number of skeleton thumbnails
+  thumbnailCount = 4,
 }) => {
-  const [mainImage, setMainImage] = useState(images[0]);
+  const [mainImage, setMainImage] = useState(images[0] ?? "");
 
   useEffect(() => {
     if (images.length > 0) {
-      setMainImage(images[0]);
+      setMainImage(images[0]!);
     }
   }, [images]);
 
   if (isLoading) {
     return (
-      <div className="mt-4">
+      <div className={`${containerWidth} space-y-4`}>
         {/* Main Image Skeleton */}
         <div
-          className={`${mainImageHeight} ${mainImageWidth} bg-gray-200 rounded-lg mb-4 animate-pulse`}
+          className={`${mainImageHeight} w-full bg-gray-200 rounded-lg animate-pulse`}
         />
 
         {/* Thumbnails Skeleton */}
-        <div className="flex gap-4 overflow-x-auto">
-          {[...Array(thumbnailCount)].map((_, index) => (
+        <div className="flex gap-4 w-full overflow-x-auto py-2">
+          {Array.from({ length: thumbnailCount }).map((_, index) => (
             <div
               key={index}
-              className={`${thumbnailHeight} ${thumbnailWidth} bg-gray-200 rounded-lg animate-pulse`}
+              className={`${thumbnailHeight} ${thumbnailWidth} bg-gray-200 rounded-lg animate-pulse flex-shrink-0`}
             />
           ))}
         </div>
@@ -52,10 +52,10 @@ export const ImageGallery: FC<ImageGalleryProps> = ({
   }
 
   return (
-    <div className="mt-4">
+    <div className={`${containerWidth} space-y-4`}>
       {/* Main Image */}
       <div
-        className={`${mainImageHeight} ${mainImageWidth} bg-gray-200 rounded-lg mb-4 overflow-hidden`}
+        className={`${mainImageHeight} w-full bg-gray-200 rounded-lg overflow-hidden`}
       >
         <img
           src={mainImage}
@@ -65,13 +65,15 @@ export const ImageGallery: FC<ImageGalleryProps> = ({
       </div>
 
       {/* Thumbnails */}
-      <div className="flex gap-4 overflow-x-auto">
+      <div className="flex gap-4 w-full overflow-x-auto py-2">
         {images.map((image, index) => (
           <button
             key={index}
             onClick={() => setMainImage(image)}
-            className={`${thumbnailHeight} ${thumbnailWidth} bg-gray-200 rounded-lg overflow-hidden flex-shrink-0 ${
-              mainImage === image ? "ring-2" : ""
+            className={`${thumbnailHeight} ${thumbnailWidth} bg-gray-200 rounded-lg overflow-hidden flex-shrink-0 transition-all ${
+              mainImage === image
+                ? "ring-2 ring-blue-500"
+                : "hover:ring-1 hover:ring-gray-300"
             }`}
           >
             <img

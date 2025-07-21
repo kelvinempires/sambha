@@ -49,7 +49,7 @@ export function VendorsSection({
         />
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 mt-4 mr-0 sm:mr-12 lg:mr-40">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 mt-4 mr-0 sm:mr-12 lg:mr-40">
           {categories.map((category) => (
             <Link
               key={category.name}
@@ -72,7 +72,7 @@ export function VendorsSection({
         </h2>
         <VendorsGrid
           vendors={filteredVendors}
-          className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-5"
+          className="grid-cols-2 sm:grid-cols-2 lg:grid-cols-5"
           imageHeight="h-82 sm:h-40"
         />
       </div>

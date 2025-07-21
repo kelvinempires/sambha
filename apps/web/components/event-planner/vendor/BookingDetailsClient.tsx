@@ -369,7 +369,7 @@ export function BookingDetailsClient({
         {/* Submit Button */}
         <button
           onClick={handleSubmitReview}
-          className="w-full py-3 px-4 bg-[#6946e2] rounded-lg text-white font-medium hover:bg-[#5d3ec9] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-lg"
+          className="w-full py-[7px] px-4 rounded-full text-sm duration-300 relative overflow-hidden border border-[#6946e2]  text-white font-medium hover:bg-gradient-to-b from-[#6946e2] to-[#b868fa] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={rating === 0}
         >
           Submit Review
