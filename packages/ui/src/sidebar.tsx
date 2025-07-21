@@ -240,15 +240,17 @@ function SidebarTrigger({ onClick }: React.ComponentProps<typeof Button>) {
   const { toggleSidebar } = useSidebar();
 
   return (
-    <Button
-      className="bg-transparent hover:bg-transparent"
-      onClick={(event) => {
-        onClick?.(event);
-        toggleSidebar();
-      }}
-    >
-      <PanelLeftOpenIcon className="text-primary-darkPurple" />
-    </Button>
+    <>
+      <Button
+        className="bg-transparent hover:bg-transparent"
+        onClick={(event) => {
+          onClick?.(event);
+          toggleSidebar();
+        }}
+      >
+        <PanelLeftOpenIcon className="text-primary-darkPurple" />
+      </Button>
+    </>
   );
 }
 
