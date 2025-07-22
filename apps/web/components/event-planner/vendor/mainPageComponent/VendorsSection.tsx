@@ -7,12 +7,12 @@ import { VendorsGrid } from "../VendorsGrid";
 
 const categories = [
   { name: "Catering", icon: "🍽️" },
-  { name: "AudioVisual", icon: "🎤" },
+  { name: "Audio-visual", icon: "🎤" },
   { name: "Venue", icon: "🏛️" },
   { name: "Photography", icon: "📷" },
   { name: "Entertainment", icon: "🎭" },
   { name: "Logistics", icon: "🚚" },
-  { name: "EventDecor", icon: "🎀" },
+  { name: "Event-decor", icon: "🎀" },
 ];
 
 type VendorsSectionProps = {

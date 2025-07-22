@@ -65,7 +65,7 @@ export const ImageGallery: FC<ImageGalleryProps> = ({
       </div>
 
       {/* Thumbnails */}
-      <div className="flex gap-4 w-full overflow-x-auto py-2">
+      <div className="flex gap-4 w-full overflow-x-auto p-2 ">
         {images.map((image, index) => (
           <button
             key={index}
