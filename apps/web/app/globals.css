@@ -4,6 +4,8 @@
 
 @font-face {
   font-family: "Fractul";
-  src: url("/apps/web/app/fonts/fractul/fonnts.com-fractul-medium.otf")
-    format("woff2");
+  src: url("/apps/web/public/fractul/fonnts.com-fractul-medium.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: normal;
 }
