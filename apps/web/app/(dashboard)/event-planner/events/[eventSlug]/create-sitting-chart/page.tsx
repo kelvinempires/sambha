@@ -9,7 +9,6 @@ import AddText from "components/event-sittings/AddText";
 import GuestSelector from "components/event-sittings/GuestSelector";
 import TableItems from "components/event-sittings/TableItems";
 
-
 // Define types
 type TableShape = {
   id: number;

@@ -4,7 +4,6 @@ import TextIcon from "components/icons/TestIcon";
 import UserIcon from "components/icons/UserIcon";
 import React from "react";
 
-
 interface TabNavigationProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;

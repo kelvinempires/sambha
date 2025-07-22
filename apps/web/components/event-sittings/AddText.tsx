@@ -17,7 +17,7 @@ export function FontSelector() {
             selectedFont === font ? "" : "gap-4"
           }`}
         >
-          <div className="flex items-center gap-2" >
+          <div className="flex items-center gap-2">
             <span className="w-5">
               {selectedFont === font && (
                 <span className=" text-lg font-normal">✔</span>
