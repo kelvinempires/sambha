@@ -7,6 +7,8 @@
     "dev": "turbo run dev",
     "test": "turbo run test",
     "lint": "turbo run lint",
+    "fix": "pnpm --recursive run fix",
+    "audit": "pnpm --recursive audit",
     "format": "prettier --write \"**/*.{ts,tsx,md,json,yaml,yml}\"",
     "type-check": "turbo run type-check",
     "clean": "turbo run clean && rm -rf node_modules",
@@ -23,7 +25,8 @@
     "docker:down": "docker-compose down",
     "docker:logs": "docker-compose logs -f",
     "contracts:deploy": "pnpm --filter contracts deploy",
-    "contracts:verify": "pnpm --filter contracts verify"
+    "contracts:verify": "pnpm --filter contracts verify",
+    "validate": "pnpm --recursive exec -- pnpm -v && turbo run lint type-check"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
