@@ -32,7 +32,7 @@ export const TabNavigation = ({
         }`}
       >
         <IconComponent isActive={activeTab === label} />
-        <span className="text-xs">{label}</span>
+        <span className="text-xs cursor-pointer">{label}</span>
       </div>
     ))}
   </div>
