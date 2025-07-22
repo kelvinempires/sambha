@@ -1,9 +1,11 @@
 import React from "react";
 
-type Props = {};
+const Page = () => {
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <h1>Page Content</h1>
+    </main>
+  );
+};
 
-function page({}: Props) {
-  return <div>page</div>;
-}
-
-export default page;
+export default Page;
