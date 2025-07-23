@@ -2,9 +2,7 @@ import { ChatLight } from "@sambha/ui/icons";
 import React from "react";
 import ChatSidebar from "../../../../components/chats/ChatSidebar";
 
-type Props = {};
-
-function page({}: Props) {
+function HomePage() {
   return (
     <>
       <div className="md:hidden">
@@ -20,4 +18,4 @@ function page({}: Props) {
   );
 }
 
-export default page;
+export default HomePage;

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import { HiPlus } from "react-icons/hi";
 import Image from "next/image";
 import Tabs, { TabItem } from "@sambha/ui/Tabs";
 import Link from "next/link";

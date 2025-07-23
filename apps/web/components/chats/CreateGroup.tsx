@@ -100,7 +100,9 @@ export const CreateGroup = () => {
         <div className="flex flex-col space-y-2">
           <div className="relative w-24 h-24">
             {groupImage ? (
-              <img
+              <Image
+                width={24}
+                height={24}
                 src={URL.createObjectURL(groupImage)}
                 alt="Preview Image"
                 className="w-24 h-24 rounded-full object-cover"

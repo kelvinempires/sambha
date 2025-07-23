@@ -27,7 +27,9 @@ export const AccountSettings = () => {
           <div className="">
             <div className="relative w-32 h-32 rounded-full">
               {profileImage ? (
-                <img
+                <Image
+                  width={40}
+                  height={40}
                   src={URL.createObjectURL(profileImage)}
                   alt="Preview Image"
                   className="w-full h-full rounded-full object-cover"

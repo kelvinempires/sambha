@@ -13,7 +13,7 @@ interface TextInputProps {
 
 export const TextInput = ({ userId }: TextInputProps) => {
   const [, setTypingMap] = useAtom(isTypingAtom);
-  const [_, setMessages] = useAtom(messagesAtom);
+  const [setMessages] = useAtom(messagesAtom);
   const [value, setValue] = useState("");
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
