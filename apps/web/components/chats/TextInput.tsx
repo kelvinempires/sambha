@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Input } from "@sambha/ui/input";
 import { HiPlus } from "react-icons/hi";
-import { useAtom } from "jotai";
+import { useAtom, useSetAtom } from "jotai";
 import { isTypingAtom, messagesAtom } from "../../store/chatAtoms";
 import { v4 as uuidv4 } from "uuid";
 
@@ -13,7 +13,7 @@ interface TextInputProps {
 
 export const TextInput = ({ userId }: TextInputProps) => {
   const [, setTypingMap] = useAtom(isTypingAtom);
-  const [setMessages] = useAtom(messagesAtom);
+  const setMessages = useSetAtom(messagesAtom);
   const [value, setValue] = useState("");
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
