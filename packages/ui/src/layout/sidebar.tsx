@@ -2,6 +2,11 @@
 import { usePathname, useRouter } from "next/navigation";
 import React, { ReactNode, useEffect, useState } from "react";
 import { Sidebar } from "../sidebar";
+import { Settings, SettingsGradient } from "../icons";
+import Image from "next/image";
+import { userData } from "../../../../apps/web/app/(dashboard)/event-planner/chats/data";
+import { ChevronRight } from "lucide-react";
+import clsx from "clsx";
 
 type BaseSidebarItem = {
   icon: ReactNode;
@@ -72,6 +77,9 @@ const SambhaSidebar = ({ sidebarItems }: { sidebarItems: SidebarItem[] }) => {
     sidebarItems?.find((item) => item.url === pathname)
   );
 
+
+  const isSettingsActive = pathname.includes("/profile/settings");
+
   // useEffect(() => {
   //   if (pathname) {
   //     setActiveItem(
@@ -79,6 +87,7 @@ const SambhaSidebar = ({ sidebarItems }: { sidebarItems: SidebarItem[] }) => {
   //     );
   //   }
   // }, [pathname]);
+
 
   useEffect(() => {
     if (pathname) {
@@ -92,10 +101,10 @@ const SambhaSidebar = ({ sidebarItems }: { sidebarItems: SidebarItem[] }) => {
 
   return (
     <Sidebar className="!bg-primary-darkPurple  overflow-hidden block w-full lg:w-[20.625rem]">
-      <section className=" text-sidebar-foreground md:rounded-xl shadow-[0px_0px_4px_0px_#0000001A] p-4  overflow-y-auto h-full md:h-[calc(100vh-70px)] no-scrollbar w-full">
+      <section className="flex flex-col text-sidebar-foreground md:rounded-xl shadow-[0px_0px_4px_0px_#0000001A] p-4  overflow-y-auto h-full md:h-[calc(100vh-70px)] no-scrollbar w-full">
         <div className="flex items-center mb-6 gap-3">
           <div>
-            <h2 className="font-normal bg-gradientText bg-clip-text text-transparent font-semibold mt-2 text-4xl">
+            <h2 className="bg-gradientText bg-clip-text text-transparent font-semibold mt-2 text-4xl">
               Sambha
             </h2>
           </div>
@@ -116,6 +125,49 @@ const SambhaSidebar = ({ sidebarItems }: { sidebarItems: SidebarItem[] }) => {
               }}
             />
           ))}
+        </div>
+        <div className="flex-1" />
+        <div>
+          <div
+            className={clsx(
+              isSettingsActive
+                ? "bg-primary-light text-sidebar-primary"
+                : "hover:bg-primary-light/10",
+              "flex items-center p-3 rounded-full cursor-pointer w-full gap-4"
+            )}
+            onClick={() => router.push("/profile/settings")}
+          >
+            {isSettingsActive ? <SettingsGradient /> : <Settings />}
+
+            <span
+              className={clsx(
+                isSettingsActive &&
+                  "bg-gradientText bg-clip-text text-transparent",
+                "text-sm font-medium text-primary-light"
+              )}
+            >
+              Settings
+            </span>
+          </div>
+          <div
+            className="flex items-center justify-between mt-6 cursor-pointer"
+            onClick={() => router.push("/profile")}
+          >
+            <div className="flex space-x-4 items-center text-white">
+              <Image
+                src={userData.image}
+                alt={userData.name}
+                width={30}
+                height={30}
+                className="size-9 rounded-full"
+              />
+              <div>
+                <p className="font-bold">{userData.name}</p>
+                <p className="text-sm">{userData.email}</p>
+              </div>
+            </div>
+            <ChevronRight className="text-white cursor-pointer" />
+          </div>
         </div>
       </section>
     </Sidebar>
