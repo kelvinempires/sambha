@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
-
-function page({}: Props) {
+const Page = () => {
   return (
-    <div>page</div>
-  )
-}
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <h1>Page Content</h1>
+    </main>
+  );
+};
 
-export default page
+export default Page;

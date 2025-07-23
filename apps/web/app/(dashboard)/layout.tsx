@@ -1,5 +1,5 @@
 "use client";
-
+import React, { ReactElement } from "react";
 import {
   SidebarProvider,
   SidebarTrigger,
@@ -40,6 +40,16 @@ const vendorSidebarItems = [
     url: "/vendor/earnings",
   },
 ];
+
+export type SidebarItem = {
+  icon: ReactElement; // More specific than ReactNode
+  label: string;
+  url: string;
+};
+
+export type SidebarProviderProps = {
+  children: React.ReactNode;
+};
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const role: string = "guest"; // or get from your auth logic
