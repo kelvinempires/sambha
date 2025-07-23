@@ -25,17 +25,20 @@ type ActionSidebarItem = BaseSidebarItem & {
 
 type SidebarItem = UrlSidebarItem | ActionSidebarItem;
 
-const SidebarItem = ({
-  icon,
-  label,
-  active,
-  onClick,
-}: {
+interface SidebarItemProps {
   icon: ReactNode;
   label: string;
   active: boolean;
   onClick: () => void;
-}) => (
+}
+
+type IconProps = {
+  active?: boolean;
+  className?: string;
+  // Add other props your icons might use
+};
+
+const SidebarItem = ({ icon, label, active, onClick }: SidebarItemProps) => (
   <button
     role="button"
     onClick={onClick}
@@ -44,9 +47,19 @@ const SidebarItem = ({
     ${active ? "bg-primary-light text-sidebar-primary" : "hover:bg-primary-light/10"}
   `}
   >
-    <span className=" bg-card h-10 w-10 flex items-center justify-center">
+    {/* <span className=" bg-card h-10 w-10 flex items-center justify-center">
       {React.isValidElement(icon)
         ? React.cloneElement(icon as React.ReactElement<any>, { active })
+        : icon}
+    </span> */}
+
+    <span className="bg-card h-10 w-10 flex items-center justify-center">
+      {React.isValidElement<IconProps>(icon)
+        ? React.cloneElement(icon, {
+            ...icon.props,
+            active,
+            className: `${icon.props.className || ""} ${active ? "text-sidebar-primary" : ""}`,
+          })
         : icon}
     </span>
     <span
@@ -64,14 +77,27 @@ const SambhaSidebar = ({ sidebarItems }: { sidebarItems: SidebarItem[] }) => {
     sidebarItems?.find((item) => item.url === pathname)
   );
 
+
   const isSettingsActive = pathname.includes("/profile/settings");
+
+  // useEffect(() => {
+  //   if (pathname) {
+  //     setActiveItem(
+  //       sidebarItems?.find((item) => item.url && pathname.includes(item.url))
+  //     );
+  //   }
+  // }, [pathname]);
+
+
   useEffect(() => {
     if (pathname) {
       setActiveItem(
-        sidebarItems?.find((item) => item.url && pathname.includes(item.url))
+        sidebarItems.find(
+          (item) => "url" in item && item.url && pathname.includes(item.url)
+        )
       );
     }
-  }, [pathname]);
+  }, [pathname, sidebarItems]); // Added sidebarItems to dependencies
 
   return (
     <Sidebar className="!bg-primary-darkPurple  overflow-hidden block w-full lg:w-[20.625rem]">

@@ -1,7 +1,11 @@
-type Props = {};
+import React from 'react'
 
-function page({}: Props) {
-  return <div>page</div>;
+const page = () => {
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <h1>Page Content</h1>
+    </main>
+  );
 }
 
-export default page;
+export default page
