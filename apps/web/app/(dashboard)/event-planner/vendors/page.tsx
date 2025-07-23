@@ -1,11 +1,39 @@
-import React from 'react'
 
-const page = () => {
+"use client";
+
+import { useState, useEffect } from "react";
+import { vendors } from "../../../../lib/vendors";
+import { VendorsSection } from "../../../../components/event-planner/vendor/mainPageComponent/VendorsSection";
+
+export default function VendorsPage(): React.JSX.Element {
+  const [selectedLocation, setSelectedLocation] = useState("All");
+  const [isLoading, setIsLoading] = useState(true);
+  const [vendorsData, setVendorsData] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setTimeout(() => {
+          setVendorsData(vendors);
+          setIsLoading(false);
+        }, 500); 
+      } catch (error) {
+        console.error("Error fetching vendors:", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Page Content</h1>
-    </main>
+    <VendorsSection
+      vendors={vendorsData}
+      selectedLocation={selectedLocation}
+      onLocationChange={setSelectedLocation}
+      isLoading={isLoading}
+    />
   );
 }
 
-export default page
+
