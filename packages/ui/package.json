@@ -41,7 +41,7 @@
     "@radix-ui/react-select": "^2.2.5"
   },
   "peerDependencies": {
-    "next": "*"
+    "next": "*",
 
     "tailwind-merge": "^3.3.1"
 

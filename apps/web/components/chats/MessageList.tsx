@@ -60,7 +60,7 @@ export default function MessageList({ userId }: MessageListProps) {
               <div
                 className={`max-w-[50%] w-fit px-4 py-2 rounded-[70px] text-sm ${
                   isMe
-                    ? "bg-primary-darkPurple text-white"
+                    ? "bg-primary-darkPurple text-white-base"
                     : "bg-grey-100 text-dark-base"
                 }`}
               >
