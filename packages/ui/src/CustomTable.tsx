@@ -12,7 +12,7 @@ import { FaSpinner } from "react-icons/fa";
 
 interface ReusableTableProps<TData> {
   data: TData[];
-  columns: ColumnDef<TData, any>[];
+  columns: ColumnDef<TData, unknown>[];
   isLoading?: boolean;
   pageIndex: number;
   pageSize: number;
