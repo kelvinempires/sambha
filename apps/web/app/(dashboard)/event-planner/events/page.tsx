@@ -2,6 +2,11 @@
 
 import React, { useState, useRef } from "react";
 import Image, { StaticImageData } from "next/image";
+// import { Button } from "@sambha/ui/button";
+// import Link from "next/link";
+// import { useParams } from "next/navigation";
+
+
 
 // === Assets ===
 import eventImage from "../../../../public/event-planner/background.png";
@@ -65,7 +70,6 @@ const defaultTheme: ThemeConfig = {
 };
 
 const themeConfigs: ThemeConfig[] = [
-  // First theme is the default theme
   {
     name: "Default",
     image: frame1,
@@ -325,8 +329,23 @@ function Page() {
       reader.readAsDataURL(e.target.files[0]);
     }
   };
-
   return (
+    //   export default function EventPage() {
+    // // const { eventSlug } = useParams();
+    // const event = {
+    //   id: "abc123",
+    //   slug: "oliver-and-emilys-wedding",
+    //   name: "Oliver & Emily's Wedding",}
+    // <div className="py-6 space-y-4">
+    // <h1 className=" font-bold">Event:</h1>
+    // <p>This is a placeholder event detail page.</p>
+
+    // <div>
+    //   <Link href={`/event-planner/events/${event.slug}`}>
+    //     <Button> Create EventSlugPage</Button>
+    //   </Link>
+
+
     <div className="font-fractul min-h-screen relative">
       {/* Fixed Background with Theme Image */}
       <div

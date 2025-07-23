@@ -10,20 +10,7 @@
     "generate:component": "turbo gen react-component",
     "check-types": "tsc --noEmit"
   },
-  "devDependencies": {
-    "@sambha/eslint-config": "workspace:*",
-    "@sambha/typescript-config": "workspace:*",
-    "@turbo/gen": "^2.5.0",
-    "@types/node": "^22.15.3",
-    "@types/react": "19.1.0",
-    "@types/react-dom": "19.1.1",
-    "eslint": "^9.27.0",
-    "typescript": "5.8.3"
-  },
-  "dependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "clsx": "^2.1.1",
-    "tailwind-merge": "^3.3.1"
-  }
+  "devDependencies": {},
+  "dependencies": {}
+
 }

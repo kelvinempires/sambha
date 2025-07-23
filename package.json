@@ -7,6 +7,8 @@
     "dev": "turbo run dev",
     "test": "turbo run test",
     "lint": "turbo run lint",
+    "fix": "pnpm --recursive run fix",
+    "audit": "pnpm --recursive audit",
     "format": "prettier --write \"**/*.{ts,tsx,md,json,yaml,yml}\"",
     "type-check": "turbo run type-check",
     "clean": "turbo run clean && rm -rf node_modules",
@@ -23,17 +25,23 @@
     "docker:down": "docker-compose down",
     "docker:logs": "docker-compose logs -f",
     "contracts:deploy": "pnpm --filter contracts deploy",
-    "contracts:verify": "pnpm --filter contracts verify"
+    "contracts:verify": "pnpm --filter contracts verify",
+    "validate": "pnpm --recursive exec -- pnpm -v && turbo run lint type-check"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@types/node": "^24.0.3",
-    "eslint": "^9.29.0",
+    "@types/node": "^24.0.15",
+    "eslint": "^9.31.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
-    "prettier": "^3.5.3",
-    "turbo": "^2.5.4",
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.5",
+    "@sambha/eslint-config": "workspace:*",
+    "@sambha/typescript-config": "workspace:*",
+    "@turbo/gen": "^2.5.5",
+    "@types/react": "19.1.0",
+    "@types/react-dom": "19.1.1",
     "typescript": "5.8.3"
   },
   "packageManager": "pnpm@9.0.0",
@@ -56,13 +64,5 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ],
-  "dependencies": {
-    "@radix-ui/react-dialog": "^1.1.14",
-    "@radix-ui/react-slot": "^1.2.3",
-    "@radix-ui/react-tooltip": "^1.2.7",
-    "class-variance-authority": "^0.7.1",
-    "lucide-react": "^0.525.0",
-    "tailwind-variants": "^1.0.0"
-  }
+  ]
 }
