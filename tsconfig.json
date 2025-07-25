@@ -32,5 +32,6 @@
     "**/*.jsx",
     "apps/web/app/(dashboard)/event-planner/events/createEvent"
   ],
+
   "exclude": ["**/node_modules", "**/dist", "**/build", "**/.next"]
 }
