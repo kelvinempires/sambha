@@ -56,5 +56,13 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@headlessui/react": "^2.2.4",
+    "@react-google-maps/api": "^2.20.7",
+    "jotai": "^2.12.5",
+    "react-form-hook": "^0.0.1",
+    "tailwindcss-border-gradient-radius": "^3.0.1",
+    "use-places-autocomplete": "^4.0.1"
+  }
 }
