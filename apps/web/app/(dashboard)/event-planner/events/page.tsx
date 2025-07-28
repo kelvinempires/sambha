@@ -1,15 +1,15 @@
 "use client";
 
-import { Button } from "@sambha/ui/button";
-import Tab from "@sambha/ui/tab";
+import { Button } from "../../../../../../packages/ui/src/button";
+import Tab from "../../../../../../packages/ui/src/tab";
 import { Plus } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { StoreIcon, TicketIcon02 } from "../../../../public/svg";
 import Link from "next/link";
-import GlobalModal from "@sambha/ui/modal/globalModal";
+import GlobalModal from "../../../../../../packages/ui/src/modal/globalModal";
 import CreateEvent from "./createEvent/CreateEvent";
-import EventCreated from "@sambha/ui/modal/EventCreated";
-import { CustomTable } from "@sambha/ui/CustomTable";
+import EventCreated from "../../../../../../packages/ui/src/modal/EventCreated";
+import { CustomTable } from "../../../../../../packages/ui/src/CustomTable";
 import { columns } from "components/profile/table/column";
 import { useRouter, useSearchParams } from "next/navigation";
 import { dummyEvents, FullEventsProps } from "types/events/dummyEvents";

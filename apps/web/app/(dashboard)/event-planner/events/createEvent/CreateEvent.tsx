@@ -450,7 +450,6 @@ const CreateEvent: React.FC<CreateEventProps> = ({
                   selected={eventType}
                   setSelected={(value) => {
                     setEventType(value);
-                    // Clear event type error when selected
                     if (errors.eventType) {
                       setErrors((prev) => ({ ...prev, eventType: undefined }));
                     }

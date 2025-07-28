@@ -672,7 +672,6 @@ function Page() {
         return null;
     }
   };
-
   return (
     <div className="font-fractul min-h-screen relative">
       {/* Fixed Background with Theme Image */}
@@ -741,6 +740,15 @@ function Page() {
           {renderTabContent()}
         </div>
       </div>
+
+      {/* Theme Selector Modal */}
+      {openTheme && (
+        <ThemeSelector
+          selectedTheme={selectedTheme}
+          setSelectedTheme={setSelectedTheme}
+          onClose={() => setOpenTheme(false)}
+        />
+      )}
 
       {/* Theme Selector Modal */}
       {openTheme && (

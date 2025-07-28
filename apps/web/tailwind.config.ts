@@ -89,6 +89,9 @@ const config: Config = {
         // green: {
         //   900: "#0F2501",
         // },
+        // green: {
+        //   900: "#0F2501",
+        // },
 
         purple: {
           base: "#6E48E3",
