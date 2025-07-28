@@ -11,7 +11,7 @@ import { Checkbox } from "@sambha/ui/checkbox";
 import { HiPlus } from "react-icons/hi";
 import { Button } from "@sambha/ui/button";
 import { IoIosArrowBack } from "react-icons/io";
-import { Host } from "../../types/chats/data";
+import { Host } from "../../types/events/data";
 import { v4 as uuidv4 } from "uuid";
 import { PlaceHolder } from "@sambha/ui/icons";
 

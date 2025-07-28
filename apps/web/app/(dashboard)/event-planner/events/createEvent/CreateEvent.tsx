@@ -24,8 +24,6 @@ import {
 } from "../../../../../public/svg";
 import Image from "next/image";
 import MapImage from "../../../../../public/map.png";
-import { FormInputWithSelect } from "@sambha/ui/form/FormInputWithSelect";
-import { FormCheckBox } from "@sambha/ui/form/FormCheckbox";
 import EventBudget from "./EventBudget";
 import { TaskList } from "./TaskList";
 import { InviteGuest } from "./InviteGuest";
@@ -45,15 +43,7 @@ const steps = [
   { title: "Step 4", subtitle: "Invite guests" },
 ];
 
-const currencyOptions = [
-  { value: "ngn", label: "NGN", icon: <NigeriaIcon /> },
-  { value: "usd", label: "USD", icon: <NigeriaIcon /> },
-];
 
-const assetOptions = [
-  { value: "btc", label: "BTC", icon: <BtcIcon /> },
-  { value: "eth", label: "ETH", icon: <BtcIcon /> },
-];
 
 interface ValidationErrors {
   eventName?: string;

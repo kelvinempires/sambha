@@ -29,7 +29,7 @@ type EventBudgetProps = {
   setAsset: React.Dispatch<React.SetStateAction<string>>; // Optional, for controlled asset
 };
 
-const EventBudget: React.FC<EventBudgetProps> = ({
+function EventBudget({
   budget,
   setBudget,
   selectedCurrency,
@@ -42,7 +42,7 @@ const EventBudget: React.FC<EventBudgetProps> = ({
   setIsFixedBudget,
   asset,
   setAsset,
-}) => {
+}: EventBudgetProps) {
   return (
     <div>
       <div className="flex flex-col sm:flex-row  w-full pt-20 items-center sm:items-end gap-3">
@@ -102,6 +102,6 @@ const EventBudget: React.FC<EventBudgetProps> = ({
       </div>
     </div>
   );
-};
+}
 
 export default EventBudget;

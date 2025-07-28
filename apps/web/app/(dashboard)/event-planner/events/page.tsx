@@ -2,22 +2,46 @@
 
 import { Button } from "@sambha/ui/button";
 import Tab from "@sambha/ui/tab";
-import ExampleTable from "@sambha/ui/table";
 import { Plus } from "lucide-react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StoreIcon, TicketIcon02 } from "../../../../public/svg";
 import Link from "next/link";
 import GlobalModal from "@sambha/ui/modal/globalModal";
 import CreateEvent from "./createEvent/CreateEvent";
 import EventCreated from "@sambha/ui/modal/EventCreated";
+import { CustomTable } from "@sambha/ui/CustomTable";
+import { columns } from "components/profile/table/column";
+import { useRouter, useSearchParams } from "next/navigation";
+import { dummyEvents, FullEventsProps } from "types/events/dummyEvents";
 
-const tabs = ["Upcoming", "Past", "Drafts"];
+const EVENT_STATUSES = ["upcoming", "past", "drafts"];
 
 function Page() {
-  const [isActive, setIsActive] = useState("Upcoming");
-  const [events, setEvents] = useState<object[]>([]);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const [isActive, setIsActive] = useState<string>("upcoming");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [eventCreated, setEventCreated] = useState(false);
+
+  // Update tab based on query param
+  useEffect(() => {
+    const tabFromURL = searchParams.get("activeTab");
+    if (tabFromURL && EVENT_STATUSES.includes(tabFromURL)) {
+      setIsActive(tabFromURL);
+    }
+  }, [searchParams]);
+
+  // Update URL without reloading
+  const setQueryParam = (param: string) => {
+    const newQuery = `?activeTab=${param.toLowerCase()}`;
+    router.push(newQuery);
+  };
+
+  const handleTabOnclick = (tab: string) => {
+    setIsActive(tab);
+    setQueryParam(tab);
+  };
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
@@ -37,8 +61,23 @@ function Page() {
   );
 
   const renderTabContent = () => {
-    if (events.length === 0) return renderEmptyState(isActive);
-    return <ExampleTable />;
+    const filteredEvents = dummyEvents.filter(
+      (event: FullEventsProps) =>
+        event.type.toLowerCase() === isActive.toLowerCase()
+    );
+
+    if (filteredEvents.length === 0) return renderEmptyState(isActive);
+
+    return (
+      <CustomTable
+        columns={columns}
+        data={filteredEvents}
+        pageIndex={1}
+        pageSize={14}
+        totalPages={Math.ceil(filteredEvents.length / 14)}
+        showSerialNumber={false}
+      />
+    );
   };
 
   return (
@@ -49,7 +88,11 @@ function Page() {
           <h1 className="md:text-5xl font-medium sm:text-4xl text-3xl text-gray-900">
             Events
           </h1>
-          <Tab tabs={tabs} setIsActive={setIsActive} isActive={isActive} />
+          <Tab
+            tabs={EVENT_STATUSES}
+            isActive={isActive}
+            onclick={handleTabOnclick}
+          />
         </div>
 
         <Button onClick={toggleModal}>
@@ -107,13 +150,12 @@ function Page() {
           setIsModal={setIsModalOpen}
         />
       </GlobalModal>
-      {
-        // This is where the modal for event created success
-      }
+
+      {/* Modal for Event Created Confirmation */}
       <GlobalModal
-        isOpen={eventCreated} // Replace with state to control visibility
+        isOpen={eventCreated}
         showCloseButton={false}
-        onOpenChange={() => {}} // Replace with function to handle close
+        onOpenChange={() => {}}
       >
         <EventCreated setIsCreated={setEventCreated} />
       </GlobalModal>
@@ -122,4 +164,3 @@ function Page() {
 }
 
 export default Page;
-
