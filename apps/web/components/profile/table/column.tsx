@@ -1,9 +1,10 @@
 import type { ColumnDef } from "@tanstack/react-table";
 
-import { HostedType } from "../../../types/profile/data";
 import { formatFlexibleDate } from "../../../utils/formatMessageDate";
+import Link from "next/link";
+import { FullEventsProps } from "types/events/dummyEvents";
 
-export const columns: ColumnDef<HostedType>[] = [
+export const columns: ColumnDef<FullEventsProps>[] = [
   {
     accessorKey: "name",
     header: "Name",
@@ -15,6 +16,13 @@ export const columns: ColumnDef<HostedType>[] = [
   {
     accessorKey: "host",
     header: "Host",
+    cell: ({ row }) => {
+      return (
+        <p className="whitespace-nowrap font-semibold">
+          {row.original.host.name}
+        </p>
+      );
+    },
   },
 
   {
@@ -36,10 +44,27 @@ export const columns: ColumnDef<HostedType>[] = [
   {
     accessorKey: "todo",
     header: "To-do",
+    cell: ({ row }) => {
+      const completedTask = row.original.tasks.filter(
+        (task) => task.status === "completed"
+      );
+      return (
+        <p className="whitespace-nowrap font-semibold">
+          {`${completedTask.length}/${row.original.tasks.length}`}
+        </p>
+      );
+    },
   },
   {
-    accessorKey: "vanue",
+    accessorKey: "venue",
     header: "Venue",
+    cell: ({ row }) => {
+      return (
+        <p className="whitespace-nowrap font-semibold">
+          {row.original.venue.name}
+        </p>
+      );
+    },
   },
 
   {
@@ -47,14 +72,16 @@ export const columns: ColumnDef<HostedType>[] = [
     header: "Actions",
     cell: ({ row }) => {
       const data = row.original;
+      const slug = data.name.replaceAll(" ", "_");
       return (
         <div className="flex items-center gap-4">
-          <button
+          <Link
+            href={`/event-planner/events/${slug}`}
             className="bg-gradientText bg-clip-text whitespace-nowrap text-transparent cursor-pointer text-primary-light"
             onClick={() => console.log(data)}
           >
             View Details
-          </button>
+          </Link>
         </div>
       );
     },
