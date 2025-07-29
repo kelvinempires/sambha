@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Vendor } from "../../../types/vendor";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { VendorProfile } from "./VendorProfile";
+import { Button } from "@sambha/ui/button";
 
 type BookingStatus = "pending" | "confirmed" | "add-milestone" | "add-review";
 
@@ -254,10 +255,10 @@ export function BookingDetailsClient({
                  Due date
                </label>
                <div className="relative">
-                 <Calendar className="absolute left-3 top-2.5 text-gray-400 w-4 h-4" />
+                 {/* <Calendar className="absolute left-3 top-2.5 text-gray-400 w-4 h-4" /> */}
                  <input
                    type="date"
-                   className="w-full pl-9 p-2.5 text-sm sm:text-base border text-gray-800 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6946e2] focus:border-[#6946e2]"
+                   className="w-full pl-4 p-2.5 text-sm sm:text-base border text-gray-800 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6946e2] focus:border-[#6946e2]"
                    value={newMilestone.dueDate}
                    onChange={(e) =>
                      setNewMilestone({
@@ -290,18 +291,15 @@ export function BookingDetailsClient({
            </div>
          </div>
 
-         <button
+         <Button
            onClick={handleAddMilestone}
-           className="w-full py-2 mt-3 px-4 rounded-full text-center font-medium transition-all duration-300 relative overflow-hidden border border-[#6946e2] bg-white group"
+           className="w-full text-gray-800 mt-3 border border-[#6946e2] bg-white group"
            disabled={
              !newMilestone.name || !newMilestone.amount || !newMilestone.dueDate
            }
          >
-           <span className="relative z-10 bg-clip-text text-xs sm:text-sm font-semibold text-transparent bg-gradient-to-b from-[#6946e2] to-[#b868fa] group-hover:from-white group-hover:to-white/90">
-             save
-           </span>
-           <span className="absolute inset-0 bg-gradient-to-b from-[#b868fa] to-[#6946e2] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></span>
-         </button>
+           save
+         </Button>
        </div>
      </div>
    </div>
@@ -332,7 +330,7 @@ export function BookingDetailsClient({
           {[1, 2, 3, 4, 5].map((star) => (
             <button
               key={star}
-              className={`text-3xl ${
+              className={`text-4xl ${
                 rating >= star ? "text-yellow-400" : "text-gray-300"
               } transition-colors`}
               onClick={() => setRating(star)}
@@ -367,13 +365,13 @@ export function BookingDetailsClient({
         </div>
 
         {/* Submit Button */}
-        <button
+        <Button
           onClick={handleSubmitReview}
-          className="w-full py-[7px] px-4 rounded-full text-sm duration-300 relative overflow-hidden border border-[#6946e2]  text-white font-medium hover:bg-gradient-to-b from-[#6946e2] to-[#b868fa] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={rating === 0}
+          className="w-full text-gray-800 mt-3 border border-[#6946e2] bg-white group"
         >
           Submit Review
-        </button>
+        </Button>
       </div>
       <button
         onClick={() => setStatus("pending")}

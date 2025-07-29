@@ -3,8 +3,14 @@ export interface Vendor {
   name: string;
   icon: string;
   category: string;
+  locationLatitude?: number;
+  locationLongitude?: number;
 
-  location: string;
+  location: string; // Human-readable address
+  coordinates?: {
+    latitude: number;
+    longitude: number;
+  };
   verified: boolean;
   price: string;
   pricePerDay: number; // Added for calculations
@@ -95,3 +101,5 @@ export interface Payment {
   method: string;
   bookingId: string;
 }
+
+
