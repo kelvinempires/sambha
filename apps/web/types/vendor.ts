@@ -30,19 +30,18 @@ export interface Vendor {
   minBookingDays: number; // Added
 }
 
+// Update your Review type to look like this:
 export interface Review {
   id: string;
   userName: string;
-  userAvatar: string;
   content: string;
   date: string;
-  rating: number;
   likes: number;
-  comment: string;
-  isLiked: boolean;
-  currentLikes: number;
+  rating: number;
+  userImage: string;
+  isLiked?: boolean;
+  currentLikes?: number;
 }
-
 export interface Booking {
   id: string;
   eventName: string;
