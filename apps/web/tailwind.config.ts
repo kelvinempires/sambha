@@ -67,6 +67,7 @@ const config: Config = {
         // },
 
         white: {
+          main: "#FFFFFF",
           base: "#F3F4F6", // Light gray for disabled background
           80: "#F9F9F9",
           90: "#EBECEE",
@@ -83,14 +84,13 @@ const config: Config = {
         red: {
           base: "#DD524D",
           10: "#FBEAE9",
-
         },
       },
-       fontFamily: {
+      fontFamily: {
         fractul: ["Fractul", "sans-serif"],
       },
-         screens: {
-        'mdlg': { 'raw': '(max-width: 1026px)' },
+      screens: {
+        mdlg: { raw: "(max-width: 1026px)" },
       },
       sidebar: "#2A1D52",
 
