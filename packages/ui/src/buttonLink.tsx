@@ -26,7 +26,7 @@ export function ButtonLink({
 
   const variants = {
     primary:
-      "bg-gradient-primary text-primary-light hover:bg-gradient-to-b hover:from-[#2A1D52] hover:to-[#C96FFF] focus-visible:ring-primary-dark",
+      "bg-[#F3F4F6] text-[#724ae5] border border-[#c46dfd] hover:text-primary-light hover:bg-gradient-to-b hover:from-[#c46dfd] hover:to-[#6745e1] focus-visible:ring-primary-dark",
     secondary:
       "bg-[#F3F4F6] text-[#374151] hover:bg-[#E5E7EB] focus-visible:ring-[#F3F4F6]",
     outline:
