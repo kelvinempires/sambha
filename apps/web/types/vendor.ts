@@ -32,9 +32,11 @@ export interface Vendor {
 
 // Update your Review type to look like this:
 export interface Review {
+  userAvatar: string;
   id: string;
   userName: string;
   content: string;
+  comment: string;
   date: string;
   likes: number;
   rating: number;
